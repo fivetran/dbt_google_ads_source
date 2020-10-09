@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: google_ads
+    schema: "{{ var('google_ads_schema', 'google_ads') }}"
+    database: "{{ var('google_ads_database', target.database) }}"
+
+    loader: Fivetran
+    loaded_at_field: _fivetran_synced
+
+    tables:
+      - name: final_url_performance
+      - name: click_performance
+      - name: criteria_performance

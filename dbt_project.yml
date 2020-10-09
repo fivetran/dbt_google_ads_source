@@ -9,3 +9,8 @@ test-paths: ["tests"]
 data-paths: ["data"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
+
+vars:
+  google_ads__final_url_performance: "{{ source('google_ads','final_url_performance') }}"
+  google_ads__click_performance: "{{ source('google_ads','click_performance') }}"
+  google_ads__criteria_performance: "{{ source('google_ads','criteria_performance') }}"
