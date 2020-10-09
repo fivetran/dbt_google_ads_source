@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: stg_google_ads__click_performance
+    description: TBD
+    columns:
+      - name: gclid
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_google_ads__criteria_performance
+    description: TBD
+    columns:
+      - name: criteria_performance_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_google_ads__final_url_performance
+    description: TBD
+    columns:
+      - name: final_url_performance_id
+        tests:
+          - unique
+          - not_null

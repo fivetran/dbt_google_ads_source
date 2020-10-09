@@ -18,6 +18,13 @@ renamed as (
 
     from source
 
+), surrogate_key as (
+
+    select
+        *,
+        {{ dbt_utils.surrogate_key(['date_day','campaign_id','ad_group_id','criteria']) }} as criteria_performance_id
+    from renamed
+
 )
 
-select * from renamed
+select * from surrogate_key

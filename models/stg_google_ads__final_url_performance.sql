@@ -34,6 +34,13 @@ url_fields as (
         {{ dbt_utils.get_url_parameter('final_url', 'utm_term') }} as utm_term
     from renamed
 
+), surrogate_key as (
+
+    select
+        *,
+        {{ dbt_utils.surrogate_key(['date_day','campaign_id','ad_group_id','final_url']) }} as final_url_performance_id
+    from url_fields
+
 )
 
-select * from url_fields
+select * from surrogate_key

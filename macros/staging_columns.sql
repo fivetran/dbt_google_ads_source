@@ -67,7 +67,7 @@
     {"name": "customer_id", "datatype": dbt_utils.type_int()},
     {"name": "date", "datatype": "date", "alias": "date_day"},
     {"name": "external_customer_id", "datatype": dbt_utils.type_int()},
-    {"name": "id", "datatype": dbt_utils.type_int(), "alias": "criteria_performance_id"},
+    {"name": "id", "datatype": dbt_utils.type_int()},
     {"name": "impressions", "datatype": dbt_utils.type_int()}
 ] %}
 
