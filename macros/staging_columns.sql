@@ -12,7 +12,6 @@
     {"name": "campaign_status", "datatype": dbt_utils.type_string()},
     {"name": "clicks", "datatype": dbt_utils.type_int()},
     {"name": "cost", "datatype": dbt_utils.type_float(), "alias": "spend"},
-    {"name": "customer_id", "datatype": dbt_utils.type_int()},
     {"name": "date", "datatype": "date", "alias": "date_day"},
     {"name": "effective_final_url", "datatype": dbt_utils.type_string(), "alias": "final_url"},
     {"name": "external_customer_id", "datatype": dbt_utils.type_int()},
@@ -37,7 +36,6 @@
     {"name": "campaign_status", "datatype": dbt_utils.type_string()},
     {"name": "clicks", "datatype": dbt_utils.type_int()},
     {"name": "criteria_id", "datatype": dbt_utils.type_int()},
-    {"name": "customer_id", "datatype": dbt_utils.type_int()},
     {"name": "date", "datatype": "date", "alias": "date_day"},
     {"name": "external_customer_id", "datatype": dbt_utils.type_int()},
     {"name": "gcl_id", "datatype": dbt_utils.type_string(), "alias": "gclid"}
@@ -64,7 +62,6 @@
     {"name": "criteria", "datatype": dbt_utils.type_string()},
     {"name": "criteria_destination_url", "datatype": dbt_utils.type_string()},
     {"name": "criteria_type", "datatype": dbt_utils.type_string()},
-    {"name": "customer_id", "datatype": dbt_utils.type_int()},
     {"name": "date", "datatype": "date", "alias": "date_day"},
     {"name": "external_customer_id", "datatype": dbt_utils.type_int()},
     {"name": "id", "datatype": dbt_utils.type_int()},

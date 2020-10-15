@@ -22,7 +22,7 @@ renamed as (
 
     select
         *,
-        {{ dbt_utils.surrogate_key(['date_day','campaign_id','ad_group_id','criteria']) }} as criteria_performance_id
+        {{ dbt_utils.surrogate_key(['date_day','id']) }} as criteria_performance_id
     from renamed
 
 )
