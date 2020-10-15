@@ -77,3 +77,35 @@ Destination URL of the criterion that triggered ads.
 {% docs criteria_type %}
 The type of the Criterion.
 {% enddocs %}
+
+{% docs base_url %}
+The base URL of the ad, extracted from the `effective_final_url`.
+{% enddocs %}
+
+{% docs url_host %}
+The URL host of the ad, extracted from the `effective_final_url`.
+{% enddocs %}
+
+{% docs url_path %}
+The URL path of the ad, extracted from the `effective_final_url`.
+{% enddocs %}
+
+{% docs utm_source %}
+The utm_source parameter of the ad, extracted from the `effective_final_url`.
+{% enddocs %}
+
+{% docs utm_medium %}
+The utm_medium parameter of the ad, extracted from the `effective_final_url`.
+{% enddocs %}
+
+{% docs utm_campaign %}
+The utm_campaign parameter of the ad, extracted from the `effective_final_url`.
+{% enddocs %}
+
+{% docs utm_content %}
+The utm_content parameter of the ad, extracted from the `effective_final_url`.
+{% enddocs %}
+
+{% docs utm_term %}
+The utm_term parameter of the ad, extracted from the `effective_final_url`.
+{% enddocs %}

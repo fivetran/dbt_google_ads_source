@@ -118,18 +118,18 @@ models:
       - name: impressions
         description: "{{ doc('impressions') }}"
       - name: base_url
-        description: The base URL of the ad, extracted from the `effective_final_url`.
+        description: "{{ doc('base_url') }}"
       - name: url_host
-        description: The URL host of the ad, extracted from the `effective_final_url`.
+        description: "{{ doc('url_host') }}"
       - name: url_path
-        description: The URL path of the ad, extracted from the `effective_final_url`.
+        description: "{{ doc('url_path') }}"
       - name: utm_source
-        description: The utm_source parameter of the ad, extracted from the `effective_final_url`.
+        description: "{{ doc('utm_source') }}"
       - name: utm_medium
-        description: The utm_medium parameter of the ad, extracted from the `effective_final_url`.
+        description: "{{ doc('utm_medium') }}"
       - name: utm_campaign
-        description: The utm_campaign parameter of the ad, extracted from the `effective_final_url`.
+        description: "{{ doc('utm_campaign') }}"
       - name: utm_content
-        description: The utm_content parameter of the ad, extracted from the `effective_final_url`.
+        description: "{{ doc('utm_content') }}"
       - name: utm_term
-        description: The utm_term parameter of the ad, extracted from the `effective_final_url`.
+        description: "{{ doc('utm_term') }}"
