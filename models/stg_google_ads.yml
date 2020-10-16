@@ -39,10 +39,6 @@ models:
   - name: stg_google_ads__criteria_performance
     description: The Criteria Performance report includes statistics aggregated at the ad group criteria level, one row per ad group and criteria combination.
     columns:
-      - name: criteria_performance_id
-        tests:
-          - unique
-          - not_null
       - name: _fivetran_id
         description: "{{ doc('_fivetran_id') }}"
       - name: _fivetran_synced

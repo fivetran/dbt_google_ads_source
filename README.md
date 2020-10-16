@@ -25,7 +25,6 @@ To use this package, you will need to pull the following reports and columns thr
   * campaign_status
   * clicks
   * cost
-  * customer_id
   * date
   * effective_final_url
   * external_customer_id
@@ -43,7 +42,6 @@ To use this package, you will need to pull the following reports and columns thr
   * criteria
   * criteria_destination_url
   * criteria_type
-  * customer_id
   * date
   * external_customer_id
   * id
@@ -58,7 +56,6 @@ To use this package, you will need to pull the following reports and columns thr
   * campaign_status
   * clicks
   * criteria_id
-  * customer_id
   * date
   * external_customer_id
   * gcl_id
