@@ -60,7 +60,7 @@ To use this package, you will need to pull the following reports and columns thr
   * external_customer_id
   * gcl_id
 
-The package assumes that these three tables are named `final_url_performance`, `click_performance`, and `criteria_performance`. If in your warehouse they are named something else, you can point the package their location with the `google_ads__final_url_performance`, `google_ads__click_performance`, and `google_ads__criteria_performance` variables:
+The package assumes that the corresponding destination tables are named `final_url_performance`, `criteria_performance`, and `click_performance` respectively. If these tables have different names in your destination, enter the correct table names in the `google_ads__final_url_performance`, `google_ads__click_performance`, and `google_ads__criteria_performance` variables so that the package can find them:
 
 ```yml
 # dbt_project.yml
