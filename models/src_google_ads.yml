@@ -1,8 +1,8 @@
 version: 2
 
 sources:
-  - name: google_ads
-    schema: "{{ var('google_ads_schema', 'google_ads') }}"
+  - name: adwords
+    schema: "{{ var('google_ads_schema', 'adwords') }}"
     database: "{{ var('google_ads_database', target.database) }}"
 
     loader: Fivetran

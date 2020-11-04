@@ -13,9 +13,11 @@ This package contains staging models, designed to work simultaneously with our [
 Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions, or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
 
 ## Configuration
-To use this package, you will need to pull the following reports and columns through Fivetran:
+To use this package, you will need to pull the following custom reports through Fivetran:
 
-* Final URL Performance:
+* Destination Table Name: final_url_performance
+* Report Type: Final URL Report
+* Fields:
   * account_descriptive_name
   * ad_group_id
   * ad_group_name
@@ -29,7 +31,10 @@ To use this package, you will need to pull the following reports and columns thr
   * effective_final_url
   * external_customer_id
   * impressions
-* Criteria Performance:
+
+* Destination Table Name: criteria_performance
+* Report Type: Criteria Performance Report
+* Fields:
   * account_descriptive_name
   * ad_group_id
   * ad_group_name
@@ -46,7 +51,10 @@ To use this package, you will need to pull the following reports and columns thr
   * external_customer_id
   * id
   * impressions
-* Click Performance:
+
+* Destination Table Name: click_performance
+* Report Type: Click Performance Report
+* Fields:
   * account_descriptive_name
   * ad_group_id
   * ad_group_name
@@ -73,7 +81,7 @@ vars:
     google_ads__click_performance: adwords.click_performance_report
 ```
 
-By default, this package will look for your Google Ads data in the `google_ads` schema of your [target database](https://docs.getdbt.com/docs/running-a-dbt-project/using-the-command-line-interface/configure-your-profile). If this is not where your Google Ads data is, please add the following configuration to your `dbt_project.yml` file:
+By default, this package will look for your Google Ads data in the `adwords` schema of your [target database](https://docs.getdbt.com/docs/running-a-dbt-project/using-the-command-line-interface/configure-your-profile). If this is not where your Google Ads data is, please add the following configuration to your `dbt_project.yml` file:
 
 ```yml
 # dbt_project.yml
@@ -83,7 +91,7 @@ config-version: 2
 
 vars:
     google_ads_schema: your_schema_name
-    google_ads_database: your_database_name 
+    google_ads_database: your_database_name
 ```
 
 ## Contributions
