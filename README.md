@@ -15,58 +15,58 @@ Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instruction
 ## Configuration
 To use this package, you will need to pull the following custom reports through Fivetran:
 
-* Destination Table Name: final_url_performance
-* Report Type: Final URL Report
+* Destination Table Name: `final_url_performance`
+* Report Type: `FINAL_URL_REPORT`
 * Fields:
-  * account_descriptive_name
-  * ad_group_id
-  * ad_group_name
-  * ad_group_status
-  * campaign_id
-  * campaign_name
-  * campaign_status
-  * clicks
-  * cost
-  * date
-  * effective_final_url
-  * external_customer_id
-  * impressions
+  * AccountDescriptiveName
+  * AdGroupId
+  * AdGroupName
+  * AdGroupStatus
+  * CampaignId
+  * CampaignName
+  * CampaignStatus
+  * Clicks
+  * Cost
+  * Date
+  * EffectiveFinalUrl
+  * ExternalCustomerId
+  * Impressions
 
-* Destination Table Name: criteria_performance
-* Report Type: Criteria Performance Report
+* Destination Table Name: `criteria_performance`
+* Report Type: `CRITERIA_PERFORMANCE_REPORT`
 * Fields:
-  * account_descriptive_name
-  * ad_group_id
-  * ad_group_name
-  * ad_group_status
-  * campaign_id
-  * campaign_name
-  * campaign_status
-  * clicks
-  * cost
-  * criteria
-  * criteria_destination_url
-  * criteria_type
-  * date
-  * external_customer_id
-  * id
-  * impressions
+  * AccountDescriptiveName
+  * AdGroupId
+  * AdGroupName
+  * AdGroupStatus
+  * CampaignId
+  * CampaignName
+  * CampaignStatus
+  * Clicks
+  * Cost
+  * Criteria
+  * CriteriaDestinationUrl
+  * CriteriaType
+  * Date
+  * ExternalCustomerId
+  * Id
+  * Impressions
 
-* Destination Table Name: click_performance
-* Report Type: Click Performance Report
+* Destination Table Name: `click_performance`
+* Report Type: `CLICK_PERFORMANCE_REPORT`
 * Fields:
-  * account_descriptive_name
-  * ad_group_id
-  * ad_group_name
-  * ad_group_status
-  * campaign_id
-  * campaign_name
-  * campaign_status
-  * clicks
-  * criteria_id
-  * date
-  * external_customer_id
-  * gcl_id
+  * AccountDescriptiveName
+  * AdGroupId
+  * AdGroupName
+  * AdGroupStatus
+  * CampaignId
+  * CampaignName
+  * CampaignStatus
+  * Clicks
+  * CriteriaId
+  * Date
+  * ExternalCustomerId
+  * GclId
 
 The package assumes that the corresponding destination tables are named `final_url_performance`, `criteria_performance`, and `click_performance` respectively. If these tables have different names in your destination, enter the correct table names in the `google_ads__final_url_performance`, `google_ads__click_performance`, and `google_ads__criteria_performance` variables so that the package can find them:
 
