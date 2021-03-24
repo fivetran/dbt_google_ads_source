@@ -4,7 +4,7 @@ This package models Google Ads data from [Fivetran's connector](https://fivetran
 
 ## Models
 
-This package contains staging models, designed to work simultaneously with our [Google Ads modeling package](https://github.com/fivetran/dbt_google_ads). The staging models name columns consistently across all packages:
+This package contains staging models, designed to work simultaneously with our [Google Ads modeling package](https://github.com/fivetran/dbt_google_ads) and our [multi-platform Ad Reporting package](https://github.com/fivetran/dbt_ad_reporting).  The staging models name columns consistently across all packages:
  * Boolean fields are prefixed with `is_` or `has_`
  * Timestamps are appended with `_timestamp`
  * ID primary keys are prefixed with the name of the table. For example, the campaign table's ID column is renamed `campaign_id`.
@@ -92,6 +92,18 @@ config-version: 2
 vars:
     google_ads_schema: your_schema_name
     google_ads_database: your_database_name
+```
+
+### Changing the Build Schema
+By default this package will build the Google Ads staging models within a schema titled (<target_schema> + `_stg_google_ads`) in your target database. If this is not where you would like your Google Ads  staging data to be written to, add the following configuration to your `dbt_project.yml` file:
+
+```yml
+# dbt_project.yml
+
+...
+models:
+    google_ads_source:
+      +schema: my_new_schema_name # leave blank for just the target_schema
 ```
 
 ## Contributions
