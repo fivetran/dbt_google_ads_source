@@ -5,3 +5,6 @@ packages:
 
   - git: https://github.com/fivetran/dbt_fivetran_utils.git
     warn-unpinned: false  
+
+  - git: "https://github.com/fishtown-analytics/spark-utils"
+    warn-unpinned: false
