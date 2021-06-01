@@ -32,7 +32,6 @@ models:
         description: "{{ doc('external_customer_id') }}"
       - name: gclid
         tests:
-          - unique
           - not_null
         description: "{{ doc('gcl_id') }}"
 
