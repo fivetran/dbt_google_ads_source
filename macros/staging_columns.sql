@@ -1,4 +1,4 @@
-{% macro get_final_url_performance_columns() %}
+{% macro get_adwords_final_url_performance_columns() %}
 
 {% set columns = [
     {"name": "_fivetran_id", "datatype": dbt_utils.type_string()},
@@ -15,6 +15,30 @@
     {"name": "date", "datatype": "date", "alias": "date_day"},
     {"name": "effective_final_url", "datatype": dbt_utils.type_string(), "alias": "final_url"},
     {"name": "external_customer_id", "datatype": dbt_utils.type_int()},
+    {"name": "impressions", "datatype": dbt_utils.type_int()}
+] %}
+
+{{ return(columns) }}
+
+{% endmacro %}
+
+{% macro get_google_ads_final_url_performance_columns() %}
+
+{% set columns = [
+    {"name": "_fivetran_id", "datatype": dbt_utils.type_string()},
+    {"name": "_fivetran_synced", "datatype": dbt_utils.type_timestamp()},
+    {"name": "customer_descriptive_name", "datatype": dbt_utils.type_string(), "alias": "account_name"},
+    {"name": "ad_group_id", "datatype": dbt_utils.type_int()},
+    {"name": "ad_group_name", "datatype": dbt_utils.type_string()},
+    {"name": "ad_group_status", "datatype": dbt_utils.type_string()},
+    {"name": "campaign_id", "datatype": dbt_utils.type_int()},
+    {"name": "campaign_name", "datatype": dbt_utils.type_string()},
+    {"name": "campaign_status", "datatype": dbt_utils.type_string()},
+    {"name": "clicks", "datatype": dbt_utils.type_int()},
+    {"name": "cost_micros", "datatype": dbt_utils.type_float(), "alias": "spend"},
+    {"name": "date", "datatype": "date", "alias": "date_day"},
+    {"name": "expanded_landing_page_view_expanded_final_url", "datatype": dbt_utils.type_string(), "alias": "final_url"},
+    {"name": "customer_id", "datatype": dbt_utils.type_int(), "alias": "external_customer_id"},
     {"name": "impressions", "datatype": dbt_utils.type_int()}
 ] %}
 

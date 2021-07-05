@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: adwords
-    schema: "{{ var('google_ads_schema', 'adwords') }}"
+    schema: "{{ var('google_ads_schema', var('api_source')) }}"
     database: "{% if target.type != 'spark'%}{{ var('google_ads_database', target.database) }}{% endif %}"
 
     loader: Fivetran
