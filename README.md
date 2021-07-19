@@ -13,7 +13,9 @@ This package contains staging models, designed to work simultaneously with our [
 Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions, or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
 
 ## Configuration
-This package allows users to leverage either the Adwords API or the Google Ads API. You will be able to determine which API your connector is using by navigating within your Fivetran UI to the `setup` tab -> `edit connection details` link -> and reference the `API configuration` used. You will want to refer to the respective configuration steps below based off the API used by your connector. Additionally, if your connector is setup using the Google Ads API then you will need to configure your `dbt_project.yml` with the below variable:
+This package allows users to leverage either the Adwords API or the Google Ads API. You will be able to determine which API your connector is using by navigating within your Fivetran UI to the `setup` tab -> `edit connection details` link -> and reference the `API configuration` used. 
+
+You will want to refer to the respective configuration steps below based off the API used by your connector. Additionally, if your connector is setup using the Google Ads API then you will need to configure your `dbt_project.yml` with the below variable:
 
 ```yml
 # dbt_project.yml
@@ -81,7 +83,7 @@ To use this package, you will need to pull the following custom reports through 
   * GclId
 
 ### Google Ads API Configuration
-To use this package, you will need to pull the following custom reports through Fivetran (you will notice `criteria_performance` and `click_performance` are omitted as these reports Adwords reports are not obtainable with the Google Ads API):
+To use this package, you will need to pull the following custom reports through Fivetran (you will notice `criteria_performance` and `click_performance` are omitted as these Adwords reports are not obtainable with the Google Ads API):
 
 * Destination Table Name: `final_url_performance`
 * Report Name: `LANDING_PAGE_VIEW`
@@ -104,7 +106,7 @@ To use this package, you will need to pull the following custom reports through 
   * metrics.impressions
 
 ### Differing Source Table Names
-The package assumes that the corresponding destination tables are named `final_url_performance` (for Adwords and Google Ads API), `criteria_performance`, and `click_performance` (for Adwords API only) respectively. If these tables have different names in your destination, enter the correct table names in the `google_ads__final_url_performance`, `google_ads__click_performance`, and `google_ads__criteria_performance` variables so that the package can find them:
+The package assumes that the corresponding destination tables are named `final_url_performance` (for Adwords and Google Ads API), `criteria_performance`, and `click_performance` (for Adwords API only). If these tables have different names in your destination, enter the correct table names in the `google_ads__final_url_performance`, `google_ads__click_performance`, and `google_ads__criteria_performance` variables so that the package can find them:
 
 ```yml
 # dbt_project.yml
