@@ -7,8 +7,7 @@ vars:
     google_ads__final_url_performance: "{{ source('adwords','final_url_performance') }}"
     google_ads__click_performance: "{{ source('adwords','click_performance') }}"
     google_ads__criteria_performance: "{{ source('adwords','criteria_performance') }}"
-  dbt_utils_dispatch_list: ['spark_utils', 'fivetran_utils']
-  fivetran_utils_dispatch_list: ['spark_utils']
+
 models:
   google_ads_source:
     +schema: stg_google_ads
