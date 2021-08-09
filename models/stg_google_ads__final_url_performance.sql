@@ -27,11 +27,25 @@ url_fields as (
         {{ dbt_utils.split_part('final_url', "'?'", 1) }} as base_url,
         {{ dbt_utils.get_url_host('final_url') }} as url_host,
         '/' || {{ dbt_utils.get_url_path('final_url') }} as url_path,
+
+        {% if var('google_auto_tagging_enabled', false) %}
+
+        coalesce( {{ dbt_utils.get_url_parameter('final_url', 'utm_source') }} , 'google')  as utm_source,
+        coalesce( {{ dbt_utils.get_url_parameter('final_url', 'utm_medium') }} , 'cpc') as utm_medium,
+        coalesce( {{ dbt_utils.get_url_parameter('final_url', 'utm_campaign') }} , campaign_name) as utm_campaign,
+        coalesce( {{ dbt_utils.get_url_parameter('final_url', 'utm_content') }} , ad_group_name) as utm_content,
+        {{ dbt_utils.get_url_parameter('final_url', 'utm_term') }} as utm_term
+
+        {% else %}
+
         {{ dbt_utils.get_url_parameter('final_url', 'utm_source') }} as utm_source,
         {{ dbt_utils.get_url_parameter('final_url', 'utm_medium') }} as utm_medium,
         {{ dbt_utils.get_url_parameter('final_url', 'utm_campaign') }} as utm_campaign,
         {{ dbt_utils.get_url_parameter('final_url', 'utm_content') }} as utm_content,
         {{ dbt_utils.get_url_parameter('final_url', 'utm_term') }} as utm_term
+
+        {% endif %}
+
     from renamed
 
 ), surrogate_key as (
