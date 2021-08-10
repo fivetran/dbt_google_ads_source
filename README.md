@@ -102,7 +102,7 @@ vars:
     google_ads_database: your_database_name
 ```
 ### UTM Auto Tagging Feature
-This package assumes you are manually adding UTM tags to the `EffectiveFinalUrl` field within the `FINAL_URL_REPORT`. If you are leveraging the auto-tag feature within Google Ads then you will want to enable the `google_auto_tagging_enabled` variable to correctly populate the UTM fields within the `stg_google_ads__final_url_performance` model.
+This package assumes you are manually adding UTM tags to the `EffectiveFinalUrl` field within the `FINAL_URL_REPORT` table. If you are leveraging the auto-tag feature within Google Ads then you will want to enable the `google_auto_tagging_enabled` variable to correctly populate the UTM fields within the `stg_google_ads__final_url_performance` model.
 ```yml
 vars:
     google_auto_tagging_enabled: true # False by default
