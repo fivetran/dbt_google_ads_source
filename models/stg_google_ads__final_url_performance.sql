@@ -34,7 +34,6 @@ url_fields as (
         coalesce( {{ dbt_utils.get_url_parameter('final_url', 'utm_medium') }} , 'cpc') as utm_medium,
         coalesce( {{ dbt_utils.get_url_parameter('final_url', 'utm_campaign') }} , campaign_name) as utm_campaign,
         coalesce( {{ dbt_utils.get_url_parameter('final_url', 'utm_content') }} , ad_group_name) as utm_content,
-        {{ dbt_utils.get_url_parameter('final_url', 'utm_term') }} as utm_term
 
         {% else %}
 
@@ -42,9 +41,10 @@ url_fields as (
         {{ dbt_utils.get_url_parameter('final_url', 'utm_medium') }} as utm_medium,
         {{ dbt_utils.get_url_parameter('final_url', 'utm_campaign') }} as utm_campaign,
         {{ dbt_utils.get_url_parameter('final_url', 'utm_content') }} as utm_content,
-        {{ dbt_utils.get_url_parameter('final_url', 'utm_term') }} as utm_term
-
+        
         {% endif %}
+        
+        {{ dbt_utils.get_url_parameter('final_url', 'utm_term') }} as utm_term
 
     from renamed
 
