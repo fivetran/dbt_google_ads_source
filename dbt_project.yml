@@ -7,6 +7,8 @@ vars:
     google_ads__final_url_performance: "{{ source('adwords','final_url_performance') }}"
     google_ads__click_performance: "{{ source('adwords','click_performance') }}"
     google_ads__criteria_performance: "{{ source('adwords','criteria_performance') }}"
+  google_ads__url_passthrough_metrics: []
+  google_ads__criteria_passthrough_metrics: []
 
 models:
   google_ads_source:
@@ -14,3 +16,5 @@ models:
     +materialized: table
     tmp:
       +materialized: view
+
+
