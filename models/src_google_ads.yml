@@ -2,13 +2,19 @@ version: 2
 
 sources:
   - name: adwords
-    schema: "{{ var('google_ads_schema', 'adwords') }}"
+    schema: "{{ var('google_ads_schema', var('api_source')) }}"
     database: "{% if target.type != 'spark'%}{{ var('google_ads_database', target.database) }}{% endif %}"
 
     loader: Fivetran
     loaded_at_field: _fivetran_synced
 
     tables:
+      - name: ad_final_url_history
+      - name: ad_stats
+      - name: ad_history
+      - name: ad_group_history
+      - name: campaign_history
+      - name: account
       - name: final_url_performance
         description: Each record represents the performance of a final url at the ad group level.
         columns:
