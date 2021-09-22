@@ -23,7 +23,7 @@ fields as (
 final as (
     
     select 
-        customer_id, 
+        customer_id as account_id, 
         date as date_day, 
         ad_group, 
         ad_id, 
