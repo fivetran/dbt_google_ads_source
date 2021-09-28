@@ -21,6 +21,23 @@ packages:
     version: [">=0.3.0", "<0.4.0"]
 ```
 ## Configuration
+
+This package allows users to leverage either the Adwords API or the Google Ads API. You will be able to determine which API your connector is using by navigating within your Fivetran UI to the `setup` tab -> `edit connection details` link -> and reference the `API configuration` used. 
+
+You will want to refer to the respective configuration steps below based off the API used by your connector. Additionally, if your connector is setup using the Google Ads API then you will need to configure your `dbt_project.yml` with the below variable:
+
+```yml
+# dbt_project.yml
+
+...
+config-version: 2
+
+vars:
+    api_source: google_ads  ## adwords by default
+```
+
+### Adwords API Configuration
+
 To use this package, you will need to pull the following custom reports through Fivetran:
 
 * Destination Table Name: `final_url_performance`
@@ -89,7 +106,9 @@ vars:
     google_ads__click_performance: adwords.click_performance_report
 ```
 
-By default, this package will look for your Google Ads data in the `adwords` schema of your [target database](https://docs.getdbt.com/docs/running-a-dbt-project/using-the-command-line-interface/configure-your-profile). If this is not where your Google Ads data is, please add the following configuration to your `dbt_project.yml` file:
+### Source Schema is Named Differently
+
+By default, this package will look for your Google Ads data in the `adwords` or `google_ads` schema of your [target database](https://docs.getdbt.com/docs/running-a-dbt-project/using-the-command-line-interface/configure-your-profile), depending on which API source you are using. If this is not where your Google Ads data is, please add the following configuration to your `dbt_project.yml` file:
 
 ```yml
 # dbt_project.yml
