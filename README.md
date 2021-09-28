@@ -129,8 +129,12 @@ By default, this package will select `clicks`, `impressions`, and `cost` from th
 
 ...
 vars:
+    # If you're using the Adwords API source
     google_ads__url_passthrough_metrics: ['the', 'list', 'of', 'metric', 'columns', 'to', 'include'] # from adwords.final_url_performance
     google_ads__criteria_passthrough_metrics: ['the', 'list', 'of', 'metric', 'columns', 'to', 'include'] # from adwords.criteria_performance
+
+    # If you're using the Google Ads API source
+    google_ads__ad_stats_passthrough_metrics: ['the', 'list', 'of', 'metric', 'columns', 'to', 'include'] # from google_ads.ad_stats
 ```
 
 ### UTM Auto Tagging Feature
