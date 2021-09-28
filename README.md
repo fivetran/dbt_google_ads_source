@@ -120,6 +120,19 @@ vars:
     google_ads_schema: your_schema_name
     google_ads_database: your_database_name
 ```
+
+### Passing Through Additional Metrics
+By default, this package will select `clicks`, `impressions`, and `cost` from the source reporting tables to store into the staging models. If you would like to pass through additional metrics to the staging models, add the following configuration to your `dbt_project.yml` file:
+
+```yml
+# dbt_project.yml
+
+...
+vars:
+    google_ads__url_passthrough_metrics: ['the', 'list', 'of', 'metric', 'columns', 'to', 'include'] # from adwords.final_url_performance
+    google_ads__criteria_passthrough_metrics: ['the', 'list', 'of', 'metric', 'columns', 'to', 'include'] # from adwords.criteria_performance
+```
+
 ### UTM Auto Tagging Feature
 This package assumes you are manually adding UTM tags to the `EffectiveFinalUrl` field within the `FINAL_URL_REPORT` table. If you are leveraging the auto-tag feature within Google Ads then you will want to enable the `google_auto_tagging_enabled` variable to correctly populate the UTM fields within the `stg_google_ads__final_url_performance` model.
 ```yml

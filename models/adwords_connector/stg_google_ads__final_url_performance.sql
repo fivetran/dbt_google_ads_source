@@ -18,6 +18,10 @@ renamed as (
             )
         }}
 
+        {% for metric in var('google_ads__url_passthrough_metrics') %}
+        , {{ metric }}
+        {% endfor %}
+
     from source
 
 ), 

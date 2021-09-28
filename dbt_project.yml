@@ -14,6 +14,8 @@ vars:
   google_ads__campaign_history: "{{ source('adwords','campaign_history') }}"
   google_ads__account: "{{ source('adwords','account') }}"
   api_source: adwords
+  google_ads__url_passthrough_metrics: []
+  google_ads__criteria_passthrough_metrics: []
 
 models:
   google_ads_source:
