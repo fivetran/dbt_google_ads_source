@@ -26,7 +26,6 @@ final as (
         id as campaign_id, 
         updated_at as updated_timestamp, 
         _fivetran_synced, 
-        customer_id, 
         name as campaign_name,
         customer_id as account_id
     from fields

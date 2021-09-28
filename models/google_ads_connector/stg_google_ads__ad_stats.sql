@@ -25,7 +25,7 @@ final as (
     select 
         customer_id as account_id, 
         date as date_day, 
-        ad_group, 
+        ad_group as ad_group_id, 
         ad_id, 
         campaign_id, 
         clicks, 
