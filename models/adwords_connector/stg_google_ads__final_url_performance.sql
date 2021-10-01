@@ -1,3 +1,5 @@
+{{ config(enabled=var('api_source') == 'adwords') }}
+
 with source as (
 
     select *
@@ -15,6 +17,10 @@ renamed as (
                 staging_columns=get_final_url_performance_columns()
             )
         }}
+
+        {% for metric in var('google_ads__url_passthrough_metrics') %}
+        , {{ metric }}
+        {% endfor %}
 
     from source
 
