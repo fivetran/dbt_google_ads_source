@@ -22,9 +22,10 @@ packages:
 ```
 ## Configuration
 
-This package allows users to leverage either the Adwords API or the Google Ads API. You will be able to determine which API your connector is using by navigating within your Fivetran UI to the `setup` tab -> `edit connection details` link -> and reference the `API configuration` used. 
+This package allows users to leverage either the Adwords API or the Google Ads API. You will be able to determine which API your connector is using by navigating within your Fivetran UI to the `setup` tab -> `edit connection details` link -> and reference the `API configuration` used. You will want to refer to the respective configuration steps below based off the API used by your connector. 
 
-You will want to refer to the respective configuration steps below based off the API used by your connector. Additionally, if your connector is setup using the Google Ads API then you will need to configure your `dbt_project.yml` with the below variable:
+### Google Ads API Configuration
+If your connector is setup using the Google Ads API then you will need to configure your `dbt_project.yml` with the below variable:
 
 ```yml
 # dbt_project.yml
@@ -37,8 +38,7 @@ vars:
 ```
 
 ### Adwords API Configuration
-
-To use this package, you will need to pull the following custom reports through Fivetran:
+If your connector is setup using the Adwords API then you will need to pull the following custom reports through Fivetran:
 
 * Destination Table Name: `final_url_performance`
 * Report Type: `FINAL_URL_REPORT`
@@ -120,7 +120,7 @@ vars:
     google_ads_schema: your_schema_name
     google_ads_database: your_database_name
 ```
-
+## Optional Configurations
 ### Passing Through Additional Metrics
 By default, this package will select `clicks`, `impressions`, and `cost` from the source reporting tables to store into the staging models. If you would like to pass through additional metrics to the staging models, add the following configuration to your `dbt_project.yml` file:
 
