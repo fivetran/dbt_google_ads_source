@@ -1,5 +1,5 @@
 name: 'google_ads_source'
-version: '0.4.0'
+version: '0.4.1'
 config-version: 2
 require-dbt-version: [">=0.20.0"]
 
@@ -22,9 +22,9 @@ models:
   google_ads_source:
     +schema: stg_google_ads
     +materialized: table
-    adwords:
+    adwords_connector:
       tmp:
         +materialized: view
-    google_ads:
+    google_ads_connector:
       tmp:
         +materialized: view
