@@ -12,6 +12,11 @@ models:
         description: The currency of the spend reported.
       - name: account_name
         description: "{{ doc('account_descriptive_name') }}"
+      - name: source_relation
+        description: >
+          The source where this data was pulled from. If you are making use of the `union_schemas` variable, this will be the source schema.
+          If you are making use of the `union_databases` variable, this will be the source database. If you are not unioining together multiple
+          sources, this will be an empty string.
 
   - name: stg_google_ads__ad_final_url_history
     description: Each record represents a version of an ad final url in Google Ads.
@@ -44,6 +49,11 @@ models:
         description: "{{ doc('utm_content') }}"
       - name: utm_term
         description: "{{ doc('utm_term') }}"
+      - name: source_relation
+        description: >
+          The source where this data was pulled from. If you are making use of the `union_schemas` variable, this will be the source schema.
+          If you are making use of the `union_databases` variable, this will be the source database. If you are not unioining together multiple
+          sources, this will be an empty string.
 
   - name: stg_google_ads__ad_group_history
     description: Each record represents a version of an ad group in Google Ads.
@@ -66,6 +76,11 @@ models:
         description: "{{ doc('ad_group_status') }}"
       - name: is_most_recent_record
         description: "{{ doc('is_most_recent_record') }}"
+      - name: source_relation
+        description: >
+          The source where this data was pulled from. If you are making use of the `union_schemas` variable, this will be the source schema.
+          If you are making use of the `union_databases` variable, this will be the source database. If you are not unioining together multiple
+          sources, this will be an empty string.
 
   - name: stg_google_ads__ad_history
     description: Each record represents a version of an ad in Google Ads.
@@ -84,6 +99,11 @@ models:
         description: "{{ doc('ad_status') }}"
       - name: is_most_recent_record
         description: "{{ doc('is_most_recent_record') }}"
+      - name: source_relation
+        description: >
+          The source where this data was pulled from. If you are making use of the `union_schemas` variable, this will be the source schema.
+          If you are making use of the `union_databases` variable, this will be the source database. If you are not unioining together multiple
+          sources, this will be an empty string.
 
   - name: stg_google_ads__ad_stats
     description: Each record represents the daily performance of an ad in Google Ads.
@@ -104,6 +124,11 @@ models:
         description: "{{ doc('cost') }}"
       - name: impressions
         description: "{{ doc('impressions') }}"
+      - name: source_relation
+        description: >
+          The source where this data was pulled from. If you are making use of the `union_schemas` variable, this will be the source schema.
+          If you are making use of the `union_databases` variable, this will be the source database. If you are not unioining together multiple
+          sources, this will be an empty string.
 
   - name: stg_google_ads__campaign_history
     description: Each record represents a version of a campaign in Google Ads.
@@ -120,3 +145,8 @@ models:
         description: "{{ doc('external_customer_id') }}"
       - name: is_most_recent_record
         description: "{{ doc('is_most_recent_record') }}"
+      - name: source_relation
+        description: >
+          The source where this data was pulled from. If you are making use of the `union_schemas` variable, this will be the source schema.
+          If you are making use of the `union_databases` variable, this will be the source database. If you are not unioining together multiple
+          sources, this will be an empty string.
