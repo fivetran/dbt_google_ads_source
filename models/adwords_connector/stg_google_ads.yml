@@ -87,14 +87,15 @@ models:
 
   - name: stg_google_ads__final_url_performance
     description:  Each record represents the performance of a final url at the ad group level.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - final_url_performance_id
+            - source_relation
     columns:
       - name: final_url_performance_id
         tests:
           - not_null
-          - dbt_utils.unique_combination_of_columns:
-              combination_of_columns:
-                - final_url_performance_id
-                - source_relation
       - name: _fivetran_id
         description: "{{ doc('_fivetran_id') }}"
       - name: _fivetran_synced

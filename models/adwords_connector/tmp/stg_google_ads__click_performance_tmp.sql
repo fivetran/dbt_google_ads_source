@@ -1,7 +1,7 @@
 {{ config(enabled=var('api_source') == 'adwords') }}
 {{
     fivetran_utils.union_data(
-        table_identifier='google_ads__click_performance', 
+        table_identifier='click_performance',
         database_variable='google_ads_database', 
         schema_variable='google_ads_schema', 
         default_database=target.database,
