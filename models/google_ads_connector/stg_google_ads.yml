@@ -120,3 +120,6 @@ models:
         description: "{{ doc('external_customer_id') }}"
       - name: is_most_recent_record
         description: "{{ doc('is_most_recent_record') }}"
+  
+  - name: stg_google_ads__campaign_stats
+    description: Each record represents the daily performance of a campaign in Google Ads.

@@ -208,3 +208,5 @@ sources:
             description: ID of the main object of this row.
           - name: impressions
             description: "{{ doc('impressions') }}"
+      - name: campaign_stats
+        description: Each record represents the daily performance of a campaign in Google Ads.

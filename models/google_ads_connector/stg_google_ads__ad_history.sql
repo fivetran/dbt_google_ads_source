@@ -28,6 +28,7 @@ final as (
         updated_at as updated_timestamp, 
         _fivetran_synced, 
         ad_type,
+        base_campaign_id,
         status as ad_status
     from fields
 ),
