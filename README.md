@@ -25,6 +25,7 @@ packages:
 This package allows users to leverage either the Adwords API or the Google Ads API. You will be able to determine which API your connector is using by navigating within your Fivetran UI to the `setup` tab -> `edit connection details` link -> and reference the `API configuration` used. You will want to refer to the respective configuration steps below based off the API used by your connector. 
 
 > **Note**: If you do not see the `API configuration` in your connection details then you are still on the Adwords API. If you would like to upgrade please reach out to your Fivetran account manager to request the new Google Ads API functionality. 
+
 ### Google Ads API Configuration
 If your connector is setup using the Google Ads API then you will need to configure your `dbt_project.yml` with the below variable:
 
@@ -121,7 +122,22 @@ vars:
     google_ads_schema: your_schema_name
     google_ads_database: your_database_name
 ```
+
+### Unioning Multiple Google Ads Connectors
+
+If you have multiple Google Ads connectors in Fivetran and would like to use this package on all of them simultaneously, we have provided functionality to do so. The package will union all of the data together and pass the unioned table into the transformations. You will be able to see which source it came from in the `source_relation` column of each model. To use this functionality, you will need to set either (**note that you cannot use both**) the `google_ads_union_schemas` or `google_ads_union_databases` variables:
+
+```yml
+# dbt_project.yml
+...
+config-version: 2
+vars:
+  google_ads_union_schemas: ['google_ads_usa','google_ads_canada'] # use this if the data is in different schemas/datasets of the same database/project
+  google_ads_union_databases: ['google_ads_usa','google_ads_canada'] # use this if the data is in different databases/projects but uses the same schema name
+```
+
 ## Optional Configurations
+
 ### Passing Through Additional Metrics
 By default, this package will select `clicks`, `impressions`, and `cost` from the source reporting tables to store into the staging models. If you would like to pass through additional metrics to the staging models, add the following configuration to your `dbt_project.yml` file:
 

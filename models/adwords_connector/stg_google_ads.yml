@@ -34,6 +34,11 @@ models:
         tests:
           - not_null
         description: "{{ doc('gcl_id') }}"
+      - name: source_relation
+        description: >
+          The source where this data was pulled from. If you are making use of the `union_schemas` variable, this will be the source schema.
+          If you are making use of the `union_databases` variable, this will be the source database. If you are not unioining together multiple
+          sources, this will be an empty string.
 
   - name: stg_google_ads__criteria_performance
     description: The Criteria Performance report includes statistics aggregated at the ad group criteria level, one row per ad group and criteria combination.
@@ -74,13 +79,22 @@ models:
         description: ID of the main object of this row.
       - name: impressions
         description: "{{ doc('impressions') }}"
+      - name: source_relation
+        description: >
+          The source where this data was pulled from. If you are making use of the `union_schemas` variable, this will be the source schema.
+          If you are making use of the `union_databases` variable, this will be the source database. If you are not unioining together multiple
+          sources, this will be an empty string.
 
   - name: stg_google_ads__final_url_performance
     description:  Each record represents the performance of a final url at the ad group level.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - final_url_performance_id
+            - source_relation
     columns:
       - name: final_url_performance_id
         tests:
-          - unique
           - not_null
       - name: _fivetran_id
         description: "{{ doc('_fivetran_id') }}"
@@ -128,3 +142,8 @@ models:
         description: "{{ doc('utm_content') }}"
       - name: utm_term
         description: "{{ doc('utm_term') }}"
+      - name: source_relation
+        description: >
+          The source where this data was pulled from. If you are making use of the `union_schemas` variable, this will be the source schema.
+          If you are making use of the `union_databases` variable, this will be the source database. If you are not unioining together multiple
+          sources, this will be an empty string.
