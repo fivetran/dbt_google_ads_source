@@ -13,7 +13,10 @@ fields as (
                 staging_columns=get_ad_stats_columns()
             )
         }}
-        {{ fivetran_utils.add_dbt_source_relation() }}
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='google_ads_union_schemas', 
+            union_database_variable='google_ads_union_databases') 
+        }}
     from base
 ),
 
@@ -30,7 +33,6 @@ final as (
         {% for metric in var('google_ads__ad_stats_passthrough_metrics') %}
         , {{ metric }}
         {% endfor %}
-        {{ fivetran_utils.source_relation() }}
     from fields
 )
 

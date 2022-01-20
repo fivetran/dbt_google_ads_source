@@ -13,7 +13,10 @@ fields as (
                 staging_columns=get_account_columns()
             )
         }}
-        {{ fivetran_utils.add_dbt_source_relation() }}
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='google_ads_union_schemas', 
+            union_database_variable='google_ads_union_databases') 
+        }}
     from base
 ),
 
@@ -24,7 +27,6 @@ final as (
         account_label_name, 
         currency_code, 
         name as account_name
-        {{ fivetran_utils.source_relation() }}
     from fields
 )
 

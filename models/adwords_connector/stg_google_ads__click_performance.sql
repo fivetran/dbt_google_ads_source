@@ -13,7 +13,10 @@ renamed as (
                 staging_columns=get_click_performance_columns()
             )
         }}
-        {{ fivetran_utils.source_relation() }}
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='google_ads_union_schemas', 
+            union_database_variable='google_ads_union_databases') 
+        }}
     from source
 )
 

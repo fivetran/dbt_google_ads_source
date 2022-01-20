@@ -13,7 +13,10 @@ fields as (
                 staging_columns=get_ad_final_url_history_columns()
             )
         }}
-        {{ fivetran_utils.add_dbt_source_relation() }}
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='google_ads_union_schemas', 
+            union_database_variable='google_ads_union_databases') 
+        }}
     from base
 ),
 
@@ -24,7 +27,6 @@ final as (
         updated_at as updated_timestamp, 
         _fivetran_synced, 
         url as final_url
-        {{ fivetran_utils.add_dbt_source_relation() }}
     from fields
 ),
 
@@ -33,7 +35,6 @@ most_recent as (
     select 
         *,
         row_number() over (partition by ad_id order by updated_timestamp desc) = 1 as is_most_recent_record
-        {{ fivetran_utils.add_dbt_source_relation() }}
     from final
 
 ), 
@@ -49,7 +50,6 @@ url_fields as (
         {{ dbt_utils.get_url_parameter('final_url', 'utm_campaign') }} as utm_campaign,
         {{ dbt_utils.get_url_parameter('final_url', 'utm_content') }} as utm_content,
         {{ dbt_utils.get_url_parameter('final_url', 'utm_term') }} as utm_term
-        {{ fivetran_utils.source_relation() }}
     from most_recent
 )
 

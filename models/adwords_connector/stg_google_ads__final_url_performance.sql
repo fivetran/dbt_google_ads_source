@@ -16,7 +16,10 @@ renamed as (
         {% for metric in var('google_ads__url_passthrough_metrics') %}
         , {{ metric }}
         {% endfor %}
-        {{ fivetran_utils.source_relation() }}
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='google_ads_union_schemas', 
+            union_database_variable='google_ads_union_databases') 
+        }}
     from source
 ), 
 

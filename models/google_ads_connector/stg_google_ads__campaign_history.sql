@@ -13,7 +13,10 @@ fields as (
                 staging_columns=get_campaign_history_columns()
             )
         }}
-        {{ fivetran_utils.add_dbt_source_relation() }}
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='google_ads_union_schemas', 
+            union_database_variable='google_ads_union_databases') 
+        }}
     from base
 ),
 
@@ -24,7 +27,6 @@ final as (
         _fivetran_synced, 
         name as campaign_name,
         customer_id as account_id
-        {{ fivetran_utils.add_dbt_source_relation() }}
     from fields
 ),
 
@@ -32,7 +34,6 @@ most_recent as (
     select 
         *,
         row_number() over (partition by campaign_id order by updated_timestamp desc) = 1 as is_most_recent_record
-        {{ fivetran_utils.source_relation() }}
     from final
 )
 
