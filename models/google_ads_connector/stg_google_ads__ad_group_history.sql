@@ -29,7 +29,8 @@ final as (
         campaign_id, 
         campaign_name, 
         name as ad_group_name, 
-        status as ad_group_status
+        status as ad_group_status,
+        source_relation
     from fields
 ),
 

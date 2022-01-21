@@ -27,7 +27,8 @@ final as (
         updated_at as updated_timestamp, 
         _fivetran_synced, 
         ad_type,
-        status as ad_status
+        status as ad_status,
+        source_relation
     from fields
 ),
 

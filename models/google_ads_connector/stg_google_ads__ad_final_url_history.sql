@@ -26,7 +26,8 @@ final as (
         ad_id,
         updated_at as updated_timestamp, 
         _fivetran_synced, 
-        url as final_url
+        url as final_url,
+        source_relation
     from fields
 ),
 

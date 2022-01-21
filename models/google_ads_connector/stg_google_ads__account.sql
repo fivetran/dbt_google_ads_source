@@ -26,7 +26,8 @@ final as (
         _fivetran_synced, 
         account_label_name, 
         currency_code, 
-        name as account_name
+        name as account_name,
+        source_relation
     from fields
 )
 

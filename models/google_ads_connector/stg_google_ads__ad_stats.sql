@@ -29,7 +29,8 @@ final as (
         campaign_id, 
         clicks, 
         cost_micros / 1000000.0 as spend, 
-        impressions
+        impressions,
+        source_relation
         {% for metric in var('google_ads__ad_stats_passthrough_metrics') %}
         , {{ metric }}
         {% endfor %}
