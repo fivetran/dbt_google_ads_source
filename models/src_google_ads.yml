@@ -9,20 +9,6 @@ sources:
     loaded_at_field: _fivetran_synced
 
     tables:
-      - name: ad_final_url_history
-        description: Each record represents a version of an ad final url in Google Ads.
-        columns:
-          - name: ad_group_id
-            description: "{{ doc('ad_group_id') }}"
-          - name: ad_id
-            description: "{{ doc('ad_id') }}"
-          - name: updated_at
-            description: "{{ doc('updated_at') }}"
-          - name: _fivetran_synced
-            description: "{{ doc('_fivetran_synced') }}"
-          - name: url
-            description: "{{ doc('effective_final_url') }}"
-
       - name: ad_stats
         description: Each record represents the daily performance of an ad in Google Ads.
         columns:
@@ -54,10 +40,12 @@ sources:
             description: "{{ doc('updated_at') }}"
           - name: _fivetran_synced
             description: "{{ doc('_fivetran_synced') }}"
-          - name: ad_type
+          - name: type
             description: "{{ doc('ad_type') }}"
           - name: status
             description: "{{ doc('ad_status') }}"
+          - name: final_urls
+            description: A list of urls that are used for the ad.
 
       - name: ad_group_history
         description: Each record represents a version of an ad group in Google Ads.
@@ -68,7 +56,7 @@ sources:
             description: "{{ doc('updated_at') }}"
           - name: _fivetran_synced
             description: "{{ doc('_fivetran_synced') }}"
-          - name: ad_group_type
+          - name: type
             description: "{{ doc('ad_group_type') }}"
           - name: campaign_id
             description: "{{ doc('campaign_id') }}"
@@ -93,8 +81,8 @@ sources:
           - name: customer_id
             description: "{{ doc('external_customer_id') }}"
 
-      - name: account
-        description: Each record represents a version of an account in Google Ads.
+      - name: account_history
+        description: Each record represents a historical version of an account in Google Ads.
         columns:
           - name: id
             description: "{{ doc('account_id') }}"
@@ -102,8 +90,10 @@ sources:
             description: "{{ doc('_fivetran_synced') }}"
           - name: currency_code
             description: The currency of the spend reported.
-          - name: name
+          - name: descriptive_name
             description: "{{ doc('account_descriptive_name') }}"
+          - name: updated_at
+            description: "{{ doc('updated_at') }}"
 
       - name: final_url_performance
         description: Each record represents the performance of a final url at the ad group level.
