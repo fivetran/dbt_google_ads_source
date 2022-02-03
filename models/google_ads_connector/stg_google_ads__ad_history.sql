@@ -29,15 +29,23 @@ final as (
         _fivetran_synced, 
         type as ad_type,
         status as ad_status,
-        --Extract the first url within the list of urls provided within the final_urls field
-        {{ dbt_utils.split_part(string_text='trim(final_urls,"[]")', delimiter_text='","', part_number=1) }} as final_url
+        {{ fivetran_utils.trim(field='final_urls',characters='"[]"') }} as final_urls
     from fields
 ),
 
 most_recent as (
 
     select 
-        *,
+        ad_group_id,
+        ad_id,
+        updated_timestamp,
+        _fivetran_synced,
+        ad_type,
+        ad_status,
+
+        --Extract the first url within the list of urls provided within the final_urls field
+        {{ dbt_utils.split_part(string_text='final_urls', delimiter_text='","', part_number=1) }} as final_url,
+
         row_number() over (partition by ad_id order by updated_timestamp desc) = 1 as is_most_recent_record
     from final
 
