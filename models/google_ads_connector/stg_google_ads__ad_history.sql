@@ -29,7 +29,7 @@ final as (
         _fivetran_synced, 
         type as ad_type,
         status as ad_status,
-        {{ fivetran_utils.trim(field='final_urls',characters='"[]"') }} as final_urls
+        {{ fivetran_utils.trim(field='final_urls',characters='[]') }} as final_urls
     from fields
 ),
 
