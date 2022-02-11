@@ -29,6 +29,7 @@ final as (
         _fivetran_synced, 
         type as ad_type,
         status as ad_status,
+        final_urls as source_final_urls,
         replace(replace(final_urls, '[', ''),']','') as final_urls
     from fields
 ),
@@ -42,6 +43,7 @@ most_recent as (
         _fivetran_synced,
         ad_type,
         ad_status,
+        source_final_urls,
 
         --Extract the first url within the list of urls provided within the final_urls field
         {{ dbt_utils.split_part(string_text='final_urls', delimiter_text="','", part_number=1) }} as final_url,
