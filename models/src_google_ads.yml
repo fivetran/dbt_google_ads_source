@@ -46,6 +46,11 @@ sources:
             description: "{{ doc('ad_status') }}"
           - name: final_urls
             description: A list of urls that are used for the ad.
+            tests:
+              - dbt_expectations.expect_column_values_to_not_match_regex_list:
+                  regex_list: ","
+                  match_on: any
+                  severity: warn
 
       - name: ad_group_history
         description: Each record represents a version of an ad group in Google Ads.
