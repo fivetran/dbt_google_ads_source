@@ -1,3 +1,3 @@
 {{ config(enabled=var('api_source') == 'google_ads') }}
 
-select * from {{ var('google_ads__account') }}
+select * from {{ var('google_ads__account_history') }}

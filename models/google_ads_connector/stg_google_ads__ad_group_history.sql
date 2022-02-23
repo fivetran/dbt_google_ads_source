@@ -26,7 +26,7 @@ final as (
         id as ad_group_id,
         updated_at as updated_timestamp,
         _fivetran_synced, 
-        ad_group_type, 
+        type as ad_group_type, 
         campaign_id, 
         campaign_name, 
         name as ad_group_name, 
