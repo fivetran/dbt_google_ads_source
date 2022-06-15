@@ -18,13 +18,13 @@ Include in your `packages.yml`
 ```yaml
 packages:
   - package: fivetran/google_ads_source
-    version: [">=0.6.0", "<0.7.0"]
+    version: [">=0.7.0", "<0.8.0"]
 ```
 ## Configuration
 
 This package allows users to leverage either the Adwords API or the Google Ads API. You will be able to determine which API your connector is using by navigating within your Fivetran UI to the `setup` tab -> `edit connection details` link -> and reference the `API configuration` used. You will want to refer to the respective configuration steps below based off the API used by your connector. 
 
-> **Note**: If you do not see the `API configuration` in your connection details then you are still on the Adwords API. If you would like to upgrade please reach out to your Fivetran account manager to request the new Google Ads API functionality. 
+> **Note**: All new Google Ads Fivetran connectors will be setup with the Google Ads API. If you are unable to infer the API type based on the above steps, it is most likely that you are using the Google Ads API.
 ### Google Ads API Configuration
 If your connector is setup using the Google Ads API then you will need to configure your `dbt_project.yml` with the below variable:
 
@@ -35,7 +35,7 @@ If your connector is setup using the Google Ads API then you will need to config
 config-version: 2
 
 vars:
-    api_source: google_ads  ## adwords by default
+  api_source: google_ads  ## google_ads by default, but may be changed to 'adwords' if using a previous version of the connector.
 ```
 
 ### Adwords API Configuration
