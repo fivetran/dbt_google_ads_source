@@ -26,7 +26,9 @@ seeds:
       base_campaign_id: "{{ 'INT64' if target.type == 'bigquery' else 'bigint' }}"
       base_ad_group_id: "{{ 'INT64' if target.type == 'bigquery' else 'bigint' }}"
       ad_group_id: "{{ 'INT64' if target.type == 'bigquery' else 'bigint' }}"
-        
+      ad_group_criterion_criterion_id:  "{{ 'INT64' if target.type == 'bigquery' else 'bigint' }}"
+      base_adgroup_id: "{{ 'INT64' if target.type == 'bigquery' else 'bigint' }}"
+
 dispatch:
   - macro_namespace: dbt_utils
     search_order: ['spark_utils', 'dbt_utils']
