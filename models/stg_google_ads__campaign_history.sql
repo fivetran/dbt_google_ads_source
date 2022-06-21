@@ -29,7 +29,6 @@ final as (
         customer_id as account_id,
         advertising_channel_type,
         advertising_channel_subtype,
-        campaign_trial_type,
         start_date,
         end_date,
         serving_status,
