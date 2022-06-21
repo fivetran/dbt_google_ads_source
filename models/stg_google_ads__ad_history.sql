@@ -1,4 +1,3 @@
-{{ config(enabled=var('api_source') == 'google_ads') }}
 
 with base as (
 
@@ -29,6 +28,7 @@ final as (
         _fivetran_synced, 
         type as ad_type,
         status as ad_status,
+        display_url,
         final_urls as source_final_urls,
         replace(replace(final_urls, '[', ''),']','') as final_urls
     from fields
@@ -43,6 +43,7 @@ most_recent as (
         _fivetran_synced,
         ad_type,
         ad_status,
+        display_url,
         source_final_urls,
 
         --Extract the first url within the list of urls provided within the final_urls field

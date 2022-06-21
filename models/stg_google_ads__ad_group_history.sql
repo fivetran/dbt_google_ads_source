@@ -1,4 +1,3 @@
-{{ config(enabled=var('api_source') == 'google_ads') }}
 
 with base as (
 

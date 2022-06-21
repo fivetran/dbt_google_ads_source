@@ -1,4 +1,3 @@
-{{ config(enabled=var('api_source') == 'google_ads') }}
 
 with base as (
 
@@ -32,7 +31,7 @@ final as (
         cost_micros / 1000000.0 as spend, 
         impressions
         
-        {% for metric in var('google_ads__ad_stats_passthrough_metrics') %}
+        {% for metric in var('google_ads__ad_stats_passthrough_metrics', []) %}
         , {{ metric }}
         {% endfor %}
     from fields

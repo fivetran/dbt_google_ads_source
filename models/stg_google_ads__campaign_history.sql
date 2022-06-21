@@ -1,4 +1,3 @@
-{{ config(enabled=var('api_source') == 'google_ads') }}
 
 with base as (
 
@@ -27,7 +26,15 @@ final as (
         updated_at as updated_timestamp, 
         _fivetran_synced, 
         name as campaign_name,
-        customer_id as account_id
+        customer_id as account_id,
+        advertising_channel_type,
+        advertising_channel_subtype,
+        campaign_trial_type,
+        start_date,
+        end_date,
+        serving_status,
+        status,
+        tracking_url_template
     from fields
 ),
 

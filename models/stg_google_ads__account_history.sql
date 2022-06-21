@@ -1,4 +1,3 @@
-{{ config(enabled=var('api_source') == 'google_ads') }}
 
 with base as (
 
@@ -26,7 +25,9 @@ final as (
         id as account_id,
         updated_at,
         _fivetran_synced,
-        currency_code, 
+        currency_code,
+        auto_tagging_enabled,
+        time_zone,
         descriptive_name as account_name
     from fields
 ),
