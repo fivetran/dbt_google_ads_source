@@ -23,6 +23,7 @@ final as (
         customer_id as account_id, 
         date as date_day,
         ad_network_type,
+        device,
         clicks, 
         cost_micros / 1000000.0 as spend, 
         impressions

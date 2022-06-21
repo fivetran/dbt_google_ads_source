@@ -24,6 +24,8 @@ final as (
         date as date_day, 
         id as ad_group_id, 
         campaign_id, 
+        device,
+        ad_network_type,
         clicks, 
         cost_micros / 1000000.0 as spend, 
         impressions

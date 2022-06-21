@@ -138,3 +138,11 @@ The type of the ad group in Google Ads.
 {% docs is_most_recent_record %}
 Boolean representing whether the record is the most recent version of the object.
 {% enddocs %}
+
+{% docs ad_network_type %}
+The Google Ad network type used across the account.
+{% enddocs %}
+
+{% docs device %}
+Account ad performance per unique device where the ads were served.
+{% enddocs %}

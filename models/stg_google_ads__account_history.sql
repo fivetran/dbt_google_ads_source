@@ -23,7 +23,7 @@ final as (
     
     select 
         id as account_id,
-        updated_at,
+        updated_at as updated_timestamp,
         _fivetran_synced,
         currency_code,
         auto_tagging_enabled,
@@ -36,7 +36,7 @@ most_recent as (
 
     select 
         *,
-        row_number() over (partition by account_id order by updated_at desc) = 1 as is_most_recent_record
+        row_number() over (partition by account_id order by updated_timestamp desc) = 1 as is_most_recent_record
     from final
 
 )
