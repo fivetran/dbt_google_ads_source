@@ -20,7 +20,9 @@ fields as (
 final as (
     
     select 
-        id as account_id,
+        id as criterion_id,
+        ad_group_id,
+        base_campaign_id,
         updated_at,
         _fivetran_synced,
         type,
@@ -34,7 +36,7 @@ most_recent as (
 
     select 
         *,
-        row_number() over (partition by account_id order by updated_at desc) = 1 as is_most_recent_record
+        row_number() over (partition by criterion_id order by updated_at desc) = 1 as is_most_recent_record
     from final
 
 )
