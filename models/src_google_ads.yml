@@ -46,6 +46,8 @@ sources:
             description: "{{ doc('ad_id') }}"
           - name: updated_at
             description: "{{ doc('updated_at') }}"
+          - name: display_url
+            description: The display url of the ad that is being served.
           - name: _fivetran_synced
             description: "{{ doc('_fivetran_synced') }}"
           - name: type
@@ -88,6 +90,20 @@ sources:
             description: "{{ doc('_fivetran_synced') }}"
           - name: ad_network_type
             description: "{{ doc('ad_network_type') }}"
+          - name: advertising_channel_type
+            description: The type of advertising channel being used by the campaign.
+          - name: advertising_channel_subtype
+            description: The advertising channel subtype that is being used by the campaign.
+          - name: start_date
+            description: The start date of the campaign.
+          - name: end_date
+            description: The end date of the campaign.
+          - name: serving_status
+            description: Status of the ads and how they are currently being served.
+          - name: status
+            description: General status of the campaign.
+          - name: tracking_url_template
+            description: The tracking url template being used throughout the campaign ads.
           - name: device
             description: "{{ doc('device') }}"
           - name: name
@@ -105,6 +121,10 @@ sources:
             description: "{{ doc('_fivetran_synced') }}"
           - name: currency_code
             description: The currency of the spend reported.
+          - name: auto_tagging_enabled
+            description: Boolean indicating if auto tagging is enabled on the account ads.
+          - name: time_zone
+            description: The time zone of the account ads.
           - name: descriptive_name
             description: "{{ doc('account_descriptive_name') }}"
           - name: updated_at

@@ -30,7 +30,7 @@ final as (
         cost_micros / 1000000.0 as spend, 
         impressions
         
-        {% for metric in var('google_ads__ad_stats_passthrough_metrics', []) %}
+        {% for metric in var('google_ads__ad_group_stats_passthrough_metrics', []) %}
         , {{ metric }}
         {% endfor %}
     from fields
