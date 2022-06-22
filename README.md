@@ -17,7 +17,7 @@
   - Adds freshness tests to source data
   - Adds column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
 - Generates a comprehensive data dictionary of your google_ads data through the [dbt docs site](https://fivetran.github.io/dbt_google_ads_source/).
-- These tables are designed to work simultaneously with our [google_ads transformation package](https://github.com/fivetran/dbt_google_ads).
+- These tables are designed to work simultaneously with our [Google Ads transformation package](https://github.com/fivetran/dbt_google_ads).
 
 # 🎯 How do I use the dbt package?
 ## Step 1: Prerequisites
@@ -63,15 +63,6 @@ vars:
     google_ads__keyword_stats_passthrough_metrics: ['the', 'list', 'of', 'metric', 'columns', 'to', 'include'] # from google_ads.keyword_stats
     google_ads__ad_stats_passthrough_metrics: ['the', 'list', 'of', 'metric', 'columns', 'to', 'include'] # from google_ads.ad_stats
 ```
-
-### UTM Auto Tagging Feature
-This package assumes you are manually adding UTM tags to the `EffectiveFinalUrl` field within the `FINAL_URL_REPORT` table. If you are leveraging the auto-tag feature within Google Ads then you will want to enable the `google_auto_tagging_enabled` variable to correctly populate the UTM fields within the `stg_google_ads__final_url_performance` model.
-```yml
-vars:
-    google_ads_source:
-      google_auto_tagging_enabled: true # False by default
-```
-
 ### Change the build schema
 By default, this package builds the google_ads staging models within a schema titled (`<target_schema>` + `_stg_google_ads`) in your destination. If this is not where you would like your google_ads staging data to be written to, add the following configuration to your root `dbt_project.yml` file:
 
