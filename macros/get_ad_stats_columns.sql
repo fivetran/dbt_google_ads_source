@@ -2,7 +2,7 @@
 
 {% set columns = [
     {"name": "_fivetran_id", "datatype": dbt_utils.type_string()},
-    {"name": "_fivetran_synced", "datatype": dbt_utils.type_timestamp()}
+    {"name": "_fivetran_synced", "datatype": dbt_utils.type_timestamp()},
     {"name": "ad_group", "datatype": dbt_utils.type_string()},
     {"name": "ad_id", "datatype": dbt_utils.type_int()},
     {"name": "ad_network_type", "datatype": dbt_utils.type_string()},
