@@ -16,6 +16,7 @@
   - `google_ads__keyword_stats_passthrough_metrics`
   - `google_ads__account_stats_passthrough_metrics`
 
+- README updates for easier navigation and use of the package. ([#29](https://github.com/fivetran/dbt_google_ads_source/pull/29))
 - Addition of identifier variables for each of the source tables to allow for further flexibility in source table direction within the dbt project. ([#29](https://github.com/fivetran/dbt_google_ads_source/pull/29))
 - Included grain uniqueness tests for each staging table. ([#29](https://github.com/fivetran/dbt_google_ads_source/pull/29))
 
