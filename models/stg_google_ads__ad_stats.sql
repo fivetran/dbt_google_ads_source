@@ -24,7 +24,7 @@ final as (
     select 
         customer_id as account_id, 
         date as date_day, 
-        {{ dbt_utils.split_part(string_text='ad_group', delimiter_text="'adGroups/'", part_number=2) }} as ad_group_id,
+        coalsece(ad_group_id, {{ dbt_utils.split_part(string_text='ad_group', delimiter_text="'adGroups/'", part_number=2) }}) as ad_group_id,
         keyword_ad_group_criterion,
         ad_network_type,
         device,
