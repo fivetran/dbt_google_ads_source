@@ -22,7 +22,7 @@ fields as (
 final as (
     
     select 
-        id as ad_group_id,
+        cast(id as {{ dbt_utils.type_string() }}) as ad_group_id,
         updated_at as updated_timestamp,
         _fivetran_synced, 
         type as ad_group_type, 

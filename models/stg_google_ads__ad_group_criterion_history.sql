@@ -21,7 +21,7 @@ final as (
     
     select 
         id as criterion_id,
-        ad_group_id,
+        cast(ad_group_id as {{ dbt_utils.type_string() }}) as ad_group_id,
         base_campaign_id,
         updated_at as updated_timestamp,
         _fivetran_synced,
