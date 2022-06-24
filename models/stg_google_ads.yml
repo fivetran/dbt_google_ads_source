@@ -105,14 +105,14 @@ models:
         description: "{{ doc('utm_term') }}"
         
   - name: stg_google_ads__ad_stats
-    description: Each record represents the daily performance of an ad in Google Ads broken down to the ad network, device type, and ad group criterion.
+    description: Each record represents the daily performance of an ad in Google Ads broken down to the ad network, device type, and ad_group_id.
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - ad_id
             - ad_network_type
             - device
-            - keyword_ad_group_criterion
+            - ad_group_id
             - date_day
     columns:
       - name: account_id
