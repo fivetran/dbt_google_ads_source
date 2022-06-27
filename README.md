@@ -24,7 +24,7 @@ packages:
 
 This package allows users to leverage either the Adwords API or the Google Ads API. You will be able to determine which API your connector is using by navigating within your Fivetran UI to the `setup` tab -> `edit connection details` link -> and reference the `API configuration` used. You will want to refer to the respective configuration steps below based off the API used by your connector. 
 
-> **Note**: As of April, 2022 all Fivetran Google Ads connectors leverage the Google Ads API rather than Adwords.
+> **Note**: As of April, 2022 all Fivetran Google Ads connectors leverage the Google Ads API rather than Adwords. Additionally, please be aware that the Adwords API version of the package will be sunset in August of 2022.
 ### Google Ads API Configuration
 If your connector is setup using the Google Ads API then you will need to configure your `dbt_project.yml` with the below variable:
 
