@@ -23,7 +23,7 @@ vars:
 
 models:
   google_ads_source:
-    +schema: stg_google_ads
+    +schema: google_ads_source
     +materialized: table
     tmp:
       +materialized: view

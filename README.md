@@ -12,7 +12,7 @@
 
 # Google Ads Source dbt Package ([Docs](https://fivetran.github.io/dbt_google_ads_source/))
 # 📣 What does this dbt package do?
-- Materializes [Google Ads staging tables](https://fivetran.github.io/dbt_google_ads_source/#!/overview/google_ads_source/models/?g_v=1&g_e=seeds) which leverage data in the format described by [this ERD](https://fivetran.com/docs/applications/google-ads#schemainformation). These staging tables clean, test, and prepare your google_ads data from [Fivetran's connector](https://fivetran.com/docs/applications/google-ads) for analysis by doing the following:
+- Materializes [Google Ads staging tables](https://fivetran.github.io/dbt_google_ads_source/#!/overview/google_ads_source/models/?g_v=1&g_e=seeds) which leverage data in the format described by [this ERD](https://fivetran.com/docs/applications/google-ads#schemainformation). These staging tables clean, test, and prepare your Google Ads data from [Fivetran's connector](https://fivetran.com/docs/applications/google-ads) for analysis by doing the following:
   - Name columns for consistency across all packages and for easier analysis
   - Adds freshness tests to source data
   - Adds column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
@@ -42,7 +42,7 @@ packages:
     version: [">=0.8.0", "<0.9.0"]
 ```
 ## Step 3: Define database and schema variables
-By default, this package runs using your destination and the `google_ads` schema. If this is not where your google_ads data is (for example, if your google_ads schema is named `google_ads_fivetran`), add the following configuration to your root `dbt_project.yml` file:
+By default, this package runs using your destination and the `google_ads` schema. If this is not where your Google Ads data is (for example, if your google_ads schema is named `google_ads_fivetran`), add the following configuration to your root `dbt_project.yml` file:
 
 ```yml
 vars:
@@ -56,7 +56,6 @@ By default, this package will select `clicks`, `impressions`, and `cost` from th
 
 ```yml
 vars:
-    # If you're using the Google Ads API source
     google_ads__account_stats_passthrough_metrics: ['the', 'list', 'of', 'metric', 'columns', 'to', 'include'] # from google_ads.account_stats
     google_ads__campaign_stats_passthrough_metrics: ['the', 'list', 'of', 'metric', 'columns', 'to', 'include'] # from google_ads.campaign_stats
     google_ads__ad_group_stats_passthrough_metrics: ['the', 'list', 'of', 'metric', 'columns', 'to', 'include'] # from google_ads.ad_group_stats
@@ -64,7 +63,7 @@ vars:
     google_ads__ad_stats_passthrough_metrics: ['the', 'list', 'of', 'metric', 'columns', 'to', 'include'] # from google_ads.ad_stats
 ```
 ### Change the build schema
-By default, this package builds the google_ads staging models within a schema titled (`<target_schema>` + `_stg_google_ads`) in your destination. If this is not where you would like your google_ads staging data to be written to, add the following configuration to your root `dbt_project.yml` file:
+By default, this package builds the Google Ads staging models within a schema titled (`<target_schema>` + `google_ads_source`) in your destination. If this is not where you would like your google_ads staging data to be written to, add the following configuration to your root `dbt_project.yml` file:
 
 ```yml
 models:

@@ -24,7 +24,7 @@ final as (
     select 
         cast(ad_group_id as {{ dbt_utils.type_string() }}) as ad_group_id, 
         id as ad_id, 
-        updated_at as updated_timestamp, 
+        updated_at, 
         _fivetran_synced, 
         type as ad_type,
         status as ad_status,
@@ -39,7 +39,7 @@ most_recent as (
     select 
         ad_group_id,
         ad_id,
-        updated_timestamp,
+        updated_at,
         _fivetran_synced,
         ad_type,
         ad_status,
@@ -49,7 +49,7 @@ most_recent as (
         --Extract the first url within the list of urls provided within the final_urls field
         {{ dbt_utils.split_part(string_text='final_urls', delimiter_text="','", part_number=1) }} as final_url,
 
-        row_number() over (partition by ad_id, ad_group_id order by updated_timestamp desc) = 1 as is_most_recent_record
+        row_number() over (partition by ad_id, ad_group_id order by updated_at desc) = 1 as is_most_recent_record
     from final
 
 ),

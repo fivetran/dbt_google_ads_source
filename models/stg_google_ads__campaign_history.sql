@@ -23,7 +23,7 @@ final as (
     
     select 
         id as campaign_id, 
-        updated_at as updated_timestamp, 
+        updated_at, 
         _fivetran_synced, 
         name as campaign_name,
         customer_id as account_id,
@@ -41,7 +41,7 @@ most_recent as (
 
     select 
         *,
-        row_number() over (partition by campaign_id order by updated_timestamp desc) = 1 as is_most_recent_record
+        row_number() over (partition by campaign_id order by updated_at desc) = 1 as is_most_recent_record
     from final
 
 )

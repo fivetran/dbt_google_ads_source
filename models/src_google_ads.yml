@@ -8,6 +8,10 @@ sources:
     loader: Fivetran
     loaded_at_field: _fivetran_synced
 
+    freshness: 
+      warn_after: {count: 48, period: hour}
+      error_after: {count: 168, period: hour}
+
     tables:
       - name: ad_stats
         description: Each record represents the daily performance of an ad in Google Ads broken down to the ad network, device type, and ad group criterion.

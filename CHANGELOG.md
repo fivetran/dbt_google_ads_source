@@ -3,22 +3,24 @@
 - The `adwords` api version of the package has been fully removed. As the Fivetran Google Ads connector now requires the Google Ads API, this functionality is no longer used. ([#29](https://github.com/fivetran/dbt_google_ads_source/pull/29))
 
 ## 🎉 Feature Enhancements 🎉
-- Addition of the following staging models which pull from the source counterparts. The inclusion of the additional `_stats` source tables is to generate a more accurate representation of the Google Ads data. For example, not all Ad types are included within the `ad_stats` table. Therefore, the addition of the further grain reports will allow for more flexibility and accurate Google Ad reporting. ([#29](https://github.com/fivetran/dbt_google_ads_source/pull/29))
+PR [#29](https://github.com/fivetran/dbt_google_ads_source/pull/29) includes the following changes:
+
+- Addition of the following staging models which pull from the source counterparts. The inclusion of the additional `_stats` source tables is to generate a more accurate representation of the Google Ads data. For example, not all Ad types are included within the `ad_stats` table. Therefore, the addition of the further grain reports will allow for more flexibility and accurate Google Ad reporting. 
   - `stg_google_ads__account_stats`
   - `stg_google_ads__ad_group_criterion_history`
   - `stg_google_ads__ad_group_stats`
   - `stg_google_ads__campaign_stats`
   - `stg_google_ads__keyword_stats`
 
-- Inclusion of additional passthrough metrics: ([#29](https://github.com/fivetran/dbt_google_ads_source/pull/29))
+- Inclusion of additional passthrough metrics: 
   - `google_ads__ad_group_stats_passthrough_metrics`
   - `google_ads__campaign_stats_passthrough_metrics`
   - `google_ads__keyword_stats_passthrough_metrics`
   - `google_ads__account_stats_passthrough_metrics`
 
-- README updates for easier navigation and use of the package. ([#29](https://github.com/fivetran/dbt_google_ads_source/pull/29))
-- Addition of identifier variables for each of the source tables to allow for further flexibility in source table direction within the dbt project. ([#29](https://github.com/fivetran/dbt_google_ads_source/pull/29))
-- Included grain uniqueness tests for each staging table. ([#29](https://github.com/fivetran/dbt_google_ads_source/pull/29))
+- README updates for easier navigation and use of the package. 
+- Addition of identifier variables for each of the source tables to allow for further flexibility in source table direction within the dbt project.
+- Included grain uniqueness tests for each staging table. 
 
 
 ## Contributors

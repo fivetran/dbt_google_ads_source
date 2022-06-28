@@ -7,7 +7,7 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - account_id
-            - updated_timestamp
+            - updated_at
     columns:
       - name: account_id
         description: "{{ doc('account_id') }}"
@@ -21,7 +21,7 @@ models:
         description: The time zone of the account ads.
       - name: account_name
         description: "{{ doc('account_descriptive_name') }}"
-      - name: updated_timestamp
+      - name: updated_at
         description: "{{ doc('_fivetran_synced') }}"
       - name: is_most_recent_record
         description: "{{ doc('is_most_recent_record') }}"
@@ -32,11 +32,11 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - ad_group_id
-            - updated_timestamp
+            - updated_at
     columns:
       - name: ad_group_id
         description: "{{ doc('ad_group_id') }}"
-      - name: updated_timestamp
+      - name: updated_at
         description: "{{ doc('updated_at') }}"
       - name: _fivetran_synced
         description: "{{ doc('_fivetran_synced') }}"
@@ -60,13 +60,13 @@ models:
           combination_of_columns:
             - ad_id
             - ad_group_id
-            - updated_timestamp
+            - updated_at
     columns:
       - name: ad_group_id
         description: "{{ doc('ad_group_id') }}"
       - name: ad_id
         description: "{{ doc('ad_id') }}"
-      - name: updated_timestamp
+      - name: updated_at
         description: "{{ doc('updated_at') }}"
       - name: display_url
         description: The display url of the ad that is being served.
@@ -144,11 +144,11 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - campaign_id
-            - updated_timestamp
+            - updated_at
     columns:
       - name: campaign_id
         description: "{{ doc('campaign_id') }}"
-      - name: updated_timestamp
+      - name: updated_at
         description: "{{ doc('updated_at') }}"
       - name: advertising_channel_type
         description: The type of advertising channel being used by the campaign.
@@ -180,7 +180,7 @@ models:
           combination_of_columns:
             - criterion_id
             - ad_group_id
-            - updated_timestamp
+            - updated_at
     columns:
       - name: criterion_id
         description: Unique identifier of the ad group criterion.
@@ -188,7 +188,7 @@ models:
         description: "{{ doc('ad_group_id') }}"
       - name: base_campaign_id
         description: "{{ doc('campaign_id') }}"
-      - name: updated_timestamp
+      - name: updated_at
         description: "{{ doc('updated_at') }}"
       - name: _fivetran_synced
         description: "{{ doc('_fivetran_synced') }}"

@@ -23,7 +23,7 @@ final as (
         id as criterion_id,
         cast(ad_group_id as {{ dbt_utils.type_string() }}) as ad_group_id,
         base_campaign_id,
-        updated_at as updated_timestamp,
+        updated_at,
         _fivetran_synced,
         type,
         status,
@@ -36,7 +36,7 @@ most_recent as (
 
     select 
         *,
-        row_number() over (partition by criterion_id order by updated_timestamp desc) = 1 as is_most_recent_record
+        row_number() over (partition by criterion_id order by updated_at desc) = 1 as is_most_recent_record
     from final
 
 )
