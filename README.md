@@ -63,7 +63,7 @@ vars:
     google_ads__ad_stats_passthrough_metrics: ['the', 'list', 'of', 'metric', 'columns', 'to', 'include'] # from google_ads.ad_stats
 ```
 ### Change the build schema
-By default, this package builds the Google Ads staging models within a schema titled (`<target_schema>` + `google_ads_source`) in your destination. If this is not where you would like your google_ads staging data to be written to, add the following configuration to your root `dbt_project.yml` file:
+By default, this package builds the Google Ads staging models within a schema titled (`<target_schema>` + `_google_ads_source`) in your destination. If this is not where you would like your google_ads staging data to be written to, add the following configuration to your root `dbt_project.yml` file:
 
 ```yml
 models:
