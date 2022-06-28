@@ -79,14 +79,14 @@ models:
       - name: is_most_recent_record
         description: "{{ doc('is_most_recent_record') }}"
       - name: source_final_urls
-        description: The original list of final urls before being trimmed down.
+        description: The original list of final urls expressed as an array. Please be aware the test used on this field is intended to warn you if you have fields with multiple urls. If you do, the `final_url` field will filter down the urls within the array to just the first. Therefore, this package will only leverage one of possibly many urls within this field array.
         tests:
           - dbt_expectations.expect_column_values_to_not_match_regex_list:
               regex_list: ","
               match_on: any
               severity: warn
       - name: final_url
-        description: The first url in the list of the urls within the final_urls source field.
+        description: The first url in the list of the urls within the `final_urls` source field.
       - name: base_url
         description: "{{ doc('base_url') }}"
       - name: url_host
