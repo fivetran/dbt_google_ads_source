@@ -28,8 +28,8 @@ PR [#29](https://github.com/fivetran/dbt_google_ads_source/pull/29) includes the
 
 # dbt_google_ads_source v0.7.0
 ## 🚨 Breaking Changes 🚨
-- The `api_source` variable is now defaulted to `google_ads` as opposed to `adwords`. The Adwords API has since been depricated by Google and is now no longer the standard API for the Google Ads connector. Please ensure you are using a Google Ads API version of the Fivetran connector before upgrading this package. ([#28](https://github.com/fivetran/dbt_google_ads_source/pull/28))
-  - Please note, the `adwords` version of this package will be fully removed from the package in August of 2022.
+- The `api_source` variable is now defaulted to `google_ads` as opposed to `adwords`. The Adwords API has since been deprecated by Google and is now no longer the standard API for the Google Ads connector. Please ensure you are using a Google Ads API version of the Fivetran connector before upgrading this package. ([#28](https://github.com/fivetran/dbt_google_ads_source/pull/28))
+  - Please note, the `adwords` version of this package will be fully removed from the package in August of 2022. This means, models under `models/adwords_connector` will be removed in favor of `models/google_ads_connector` models.
 # dbt_google_ads_source v0.6.0
 ## 🚨 Breaking Changes 🚨
 - The `account` source table has been renamed to be `account_history`. This has been reflected in this release. ([#25](https://github.com/fivetran/dbt_google_ads_source/pull/25))
