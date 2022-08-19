@@ -1,3 +1,4 @@
+{{ config(enabled=var('ad_reporting__google_ads_enabled', True)) }}
 
 with base as (
 
@@ -24,21 +25,13 @@ final as (
     select 
         id as account_id,
         updated_at,
-        _fivetran_synced,
         currency_code,
         auto_tagging_enabled,
         time_zone,
-        descriptive_name as account_name
+        descriptive_name as account_name,
+        row_number() over (partition by id order by updated_at desc) = 1 as is_most_recent_record
     from fields
-),
-
-most_recent as (
-
-    select 
-        *,
-        row_number() over (partition by account_id order by updated_at desc) = 1 as is_most_recent_record
-    from final
-
 )
 
-select * from most_recent
+select * 
+from final

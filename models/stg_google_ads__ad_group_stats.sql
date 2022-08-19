@@ -1,3 +1,4 @@
+{{ config(enabled=var('ad_reporting__google_ads_enabled', True)) }}
 
 with base as (
 
@@ -30,9 +31,8 @@ final as (
         cost_micros / 1000000.0 as spend, 
         impressions
         
-        {% for metric in var('google_ads__ad_group_stats_passthrough_metrics', []) %}
-        , {{ metric }}
-        {% endfor %}
+        {{ fivetran_utils.fill_pass_through_columns('google_ads__ad_group_stats_passthrough_metrics') }}
+
     from fields
 )
 

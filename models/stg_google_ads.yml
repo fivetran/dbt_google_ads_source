@@ -11,8 +11,8 @@ models:
     columns:
       - name: account_id
         description: "{{ doc('account_id') }}"
-      - name: _fivetran_synced
-        description: "{{ doc('_fivetran_synced') }}"
+        tests:
+          - not_null
       - name: currency_code
         description: The currency of the spend reported.
       - name: auto_tagging_enabled
@@ -36,10 +36,10 @@ models:
     columns:
       - name: ad_group_id
         description: "{{ doc('ad_group_id') }}"
+        tests:
+          - not_null
       - name: updated_at
         description: "{{ doc('updated_at') }}"
-      - name: _fivetran_synced
-        description: "{{ doc('_fivetran_synced') }}"
       - name: ad_group_type
         description: "{{ doc('ad_group_type') }}"
       - name: campaign_id
@@ -66,12 +66,12 @@ models:
         description: "{{ doc('ad_group_id') }}"
       - name: ad_id
         description: "{{ doc('ad_id') }}"
+        tests:
+          - not_null
       - name: updated_at
         description: "{{ doc('updated_at') }}"
       - name: display_url
         description: The display url of the ad that is being served.
-      - name: _fivetran_synced
-        description: "{{ doc('_fivetran_synced') }}"
       - name: ad_type
         description: "{{ doc('ad_type') }}"
       - name: ad_status
@@ -113,16 +113,21 @@ models:
             - ad_network_type
             - device
             - ad_group_id
+            - keyword_ad_group_criterion
             - date_day
     columns:
       - name: account_id
         description: "{{ doc('external_customer_id') }}"
       - name: date_day
         description: "{{ doc('date') }}"
+        tests:
+          - not_null
       - name: ad_group_id
         description: "{{ doc('ad_group_id') }}"
       - name: ad_id
         description: "{{ doc('ad_id') }}"
+        tests:
+          - not_null
       - name: campaign_id
         description: "{{ doc('campaign_id') }}"
       - name: ad_network_type
@@ -148,6 +153,8 @@ models:
     columns:
       - name: campaign_id
         description: "{{ doc('campaign_id') }}"
+        tests:
+          - not_null
       - name: updated_at
         description: "{{ doc('updated_at') }}"
       - name: advertising_channel_type
@@ -164,8 +171,6 @@ models:
         description: General status of the campaign.
       - name: tracking_url_template
         description: The tracking url template being used throughout the campaign ads.
-      - name: _fivetran_synced
-        description: "{{ doc('_fivetran_synced') }}"
       - name: campaign_name
         description: "{{ doc('campaign_name') }}"
       - name: account_id
@@ -184,14 +189,14 @@ models:
     columns:
       - name: criterion_id
         description: Unique identifier of the ad group criterion.
+        tests:
+          - not_null
       - name: ad_group_id
         description: "{{ doc('ad_group_id') }}"
       - name: base_campaign_id
         description: "{{ doc('campaign_id') }}"
       - name: updated_at
         description: "{{ doc('updated_at') }}"
-      - name: _fivetran_synced
-        description: "{{ doc('_fivetran_synced') }}"
       - name: type
         description: The type of ad group criterion.
       - name: status
@@ -217,8 +222,12 @@ models:
         description: "{{ doc('external_customer_id') }}"
       - name: date_day
         description: "{{ doc('date') }}"
+        tests:
+          - not_null
       - name: ad_group_id
         description: "{{ doc('ad_group_id') }}"
+        tests:
+          - not_null
       - name: campaign_id
         description: "{{ doc('campaign_id') }}"
       - name: ad_network_type
@@ -246,8 +255,12 @@ models:
         description: "{{ doc('external_customer_id') }}"
       - name: date_day
         description: "{{ doc('date') }}"
+        tests:
+          - not_null
       - name: campaign_id
         description: "{{ doc('campaign_id') }}"
+        tests:
+          - not_null
       - name: ad_network_type
         description: "{{ doc('ad_network_type') }}"
       - name: device
@@ -271,10 +284,14 @@ models:
         description: "{{ doc('external_customer_id') }}"
       - name: date_day
         description: "{{ doc('date') }}"
+        tests:
+          - not_null
       - name: ad_group_id
         description: "{{ doc('ad_group_id') }}"
       - name: keyword_id
         description: The unique ID of the keyword record.
+        tests:
+          - not_null
       - name: campaign_id
         description: "{{ doc('campaign_id') }}"
       - name: criterion_id
@@ -298,8 +315,12 @@ models:
     columns:
       - name: account_id
         description: "{{ doc('external_customer_id') }}"
+        tests:
+          - not_null
       - name: date_day
         description: "{{ doc('date') }}"
+        tests:
+          - not_null
       - name: ad_network_type
         description: "{{ doc('ad_network_type') }}"
       - name: device

@@ -1,9 +1,9 @@
+{{ config(enabled=var('ad_reporting__google_ads_enabled', True)) }}
 
 with base as (
 
     select * 
     from {{ ref('stg_google_ads__ad_history_tmp') }}
-
 ),
 
 fields as (
@@ -24,32 +24,23 @@ final as (
     select 
         cast(ad_group_id as {{ dbt_utils.type_string() }}) as ad_group_id, 
         id as ad_id, 
-        updated_at, 
-        _fivetran_synced, 
+        updated_at,
         type as ad_type,
         status as ad_status,
         display_url,
         final_urls as source_final_urls,
-        replace(replace(final_urls, '[', ''),']','') as final_urls
+        replace(replace(final_urls, '[', ''),']','') as final_urls,
+        row_number() over (partition by id, ad_group_id order by updated_at desc) = 1 as is_most_recent_record
     from fields
 ),
 
-most_recent as (
+final_urls as (
 
     select 
-        ad_group_id,
-        ad_id,
-        updated_at,
-        _fivetran_synced,
-        ad_type,
-        ad_status,
-        display_url,
-        source_final_urls,
-
+        *,
         --Extract the first url within the list of urls provided within the final_urls field
-        {{ dbt_utils.split_part(string_text='final_urls', delimiter_text="','", part_number=1) }} as final_url,
+        {{ dbt_utils.split_part(string_text='final_urls', delimiter_text="','", part_number=1) }} as final_url
 
-        row_number() over (partition by ad_id, ad_group_id order by updated_at desc) = 1 as is_most_recent_record
     from final
 
 ),
@@ -65,7 +56,7 @@ url_fields as (
         {{ dbt_utils.get_url_parameter('final_url', 'utm_campaign') }} as utm_campaign,
         {{ dbt_utils.get_url_parameter('final_url', 'utm_content') }} as utm_content,
         {{ dbt_utils.get_url_parameter('final_url', 'utm_term') }} as utm_term
-    from most_recent
+    from final_urls
 )
 
 select * 

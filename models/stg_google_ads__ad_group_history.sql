@@ -1,3 +1,4 @@
+{{ config(enabled=var('ad_reporting__google_ads_enabled', True)) }}
 
 with base as (
 
@@ -24,22 +25,14 @@ final as (
     select 
         cast(id as {{ dbt_utils.type_string() }}) as ad_group_id,
         updated_at,
-        _fivetran_synced, 
         type as ad_group_type, 
         campaign_id, 
         campaign_name, 
         name as ad_group_name, 
-        status as ad_group_status
+        status as ad_group_status,
+        row_number() over (partition by id order by updated_at desc) = 1 as is_most_recent_record
     from fields
-),
-
-most_recent as (
-
-    select 
-        *,
-        row_number() over (partition by ad_group_id order by updated_at desc) = 1 as is_most_recent_record
-    from final
-
 )
 
-select * from most_recent
+select * 
+from final

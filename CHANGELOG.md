@@ -1,6 +1,14 @@
 # dbt_google_ads_source v0.8.0
 ## 🚨 Breaking Changes 🚨
 - The `adwords` api version of the package has been fully removed. As the Fivetran Google Ads connector now requires the Google Ads API, this functionality is no longer used. ([#29](https://github.com/fivetran/dbt_google_ads_source/pull/29))
+- The declaration of passthrough variables within your root `dbt_project.yml` has changed. To allow for more flexibility and better tracking of passthrough columns, you will now want to define passthrough metrics in the following format: ([#29](https://github.com/fivetran/dbt_google_ads_source/pull/29))
+> This applies to all passthrough metrics within the `dbt_google_ads_source` package and not just the `google_ads__ad_stats_passthrough_metrics` example.
+```yml
+vars:
+  google_ads__ad_stats_passthrough_metrics:
+    - name: "my_field_to_include" # Required: Name of the field within the source.
+      alias: "field_alias" # Optional: If you wish to alias the field within the staging model.
+```
 
 ## 🎉 Feature Enhancements 🎉
 PR [#29](https://github.com/fivetran/dbt_google_ads_source/pull/29) includes the following changes:

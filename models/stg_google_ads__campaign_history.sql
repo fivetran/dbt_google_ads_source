@@ -1,3 +1,4 @@
+{{ config(enabled=var('ad_reporting__google_ads_enabled', True)) }}
 
 with base as (
 
@@ -23,8 +24,7 @@ final as (
     
     select 
         id as campaign_id, 
-        updated_at, 
-        _fivetran_synced, 
+        updated_at,
         name as campaign_name,
         customer_id as account_id,
         advertising_channel_type,
@@ -33,17 +33,10 @@ final as (
         end_date,
         serving_status,
         status,
-        tracking_url_template
+        tracking_url_template,
+        row_number() over (partition by id order by updated_at desc) = 1 as is_most_recent_record
     from fields
-),
-
-most_recent as (
-
-    select 
-        *,
-        row_number() over (partition by campaign_id order by updated_at desc) = 1 as is_most_recent_record
-    from final
-
 )
 
-select * from most_recent
+select * 
+from final

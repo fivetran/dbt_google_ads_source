@@ -14,6 +14,8 @@
     {"name": "impressions", "datatype": dbt_utils.type_int()}
 ] %}
 
+{{ fivetran_utils.add_pass_through_columns(columns, var('google_ads__ad_group_stats_passthrough_metrics')) }}
+
 {{ return(columns) }}
 
 {% endmacro %}

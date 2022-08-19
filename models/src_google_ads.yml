@@ -16,6 +16,8 @@ sources:
       - name: ad_stats
         description: Each record represents the daily performance of an ad in Google Ads broken down to the ad network, device type, and ad group criterion.
         identifier: "{{ var('google_ads_ad_stats_identifier', 'ad_stats') }}"
+        config:
+          enabled: "{{ var('ad_reporting__google_ads_enabled', true) }}"
         columns:
           - name: customer_id
             description: "{{ doc('external_customer_id') }}"
@@ -43,6 +45,8 @@ sources:
       - name: ad_history
         description: Each record represents a version of an ad in Google Ads.
         identifier: "{{ var('google_ads_ad_history_identifier', 'ad_history') }}"
+        config:
+          enabled: "{{ var('ad_reporting__google_ads_enabled', true) }}"
         columns:
           - name: ad_group_id
             description: "{{ doc('ad_group_id') }}"
@@ -52,8 +56,6 @@ sources:
             description: "{{ doc('updated_at') }}"
           - name: display_url
             description: The display url of the ad that is being served.
-          - name: _fivetran_synced
-            description: "{{ doc('_fivetran_synced') }}"
           - name: type
             description: "{{ doc('ad_type') }}"
           - name: status
@@ -64,13 +66,13 @@ sources:
       - name: ad_group_history
         description: Each record represents a version of an ad group in Google Ads.
         identifier: "{{ var('google_ads_ad_group_history_identifier', 'ad_group_history') }}"
+        config:
+          enabled: "{{ var('ad_reporting__google_ads_enabled', true) }}"
         columns:
           - name: id
             description: "{{ doc('ad_group_id') }}"
           - name: updated_at
             description: "{{ doc('updated_at') }}"
-          - name: _fivetran_synced
-            description: "{{ doc('_fivetran_synced') }}"
           - name: type
             description: "{{ doc('ad_group_type') }}"
           - name: campaign_id
@@ -85,13 +87,13 @@ sources:
       - name: campaign_history
         description: Each record represents a version of a campaign in Google Ads.
         identifier: "{{ var('google_ads_campaign_history_identifier', 'campaign_history') }}"
+        config:
+          enabled: "{{ var('ad_reporting__google_ads_enabled', true) }}"
         columns:
           - name: id
             description: "{{ doc('campaign_id') }}"
           - name: updated_at
             description: "{{ doc('updated_at') }}"
-          - name: _fivetran_synced
-            description: "{{ doc('_fivetran_synced') }}"
           - name: ad_network_type
             description: "{{ doc('ad_network_type') }}"
           - name: advertising_channel_type
@@ -118,11 +120,11 @@ sources:
       - name: account_history
         description: Each record represents a historical version of an account in Google Ads.
         identifier: "{{ var('google_ads_account_history_identifier', 'account_history') }}"
+        config:
+          enabled: "{{ var('ad_reporting__google_ads_enabled', true) }}"
         columns:
           - name: id
             description: "{{ doc('account_id') }}"
-          - name: _fivetran_synced
-            description: "{{ doc('_fivetran_synced') }}"
           - name: currency_code
             description: The currency of the spend reported.
           - name: auto_tagging_enabled
@@ -137,6 +139,8 @@ sources:
       - name: ad_group_criterion_history
         description: Each record represents a historical version of an ad group criterion in Google Ads.
         identifier: "{{ var('google_ads_ad_group_criterion_history_identifier', 'ad_group_criterion_history') }}"
+        config:
+          enabled: "{{ var('ad_reporting__google_ads_enabled', true) }}"
         columns:
           - name: id
             description: Unique identifier of the ad group criterion.
@@ -146,8 +150,6 @@ sources:
             description: "{{ doc('campaign_id') }}"
           - name: updated_at
             description: "{{ doc('updated_at') }}"
-          - name: _fivetran_synced
-            description: "{{ doc('_fivetran_synced') }}"
           - name: type
             description: The type of ad group criterion.
           - name: status
@@ -160,6 +162,8 @@ sources:
       - name: ad_group_stats
         description: Each record represents the daily performance of an ad group in Google Ads broken down to the ad network and device type.
         identifier: "{{ var('google_ads_ad_group_stats_identifier', 'ad_group_stats') }}"
+        config:
+          enabled: "{{ var('ad_reporting__google_ads_enabled', true) }}"
         columns:
           - name: customer_id
             description: "{{ doc('external_customer_id') }}"
@@ -183,6 +187,8 @@ sources:
       - name: campaign_stats
         description: Each record represents the daily performance of a campaign in Google Ads broken down to the ad network and device type.
         identifier: "{{ var('google_ads_campaign_stats_identifier', 'campaign_stats') }}"
+        config:
+          enabled: "{{ var('ad_reporting__google_ads_enabled', true) }}"
         columns:
           - name: customer_id
             description: "{{ doc('external_customer_id') }}"
@@ -200,6 +206,8 @@ sources:
       - name: keyword_stats
         description: Each record represents the daily performance of a keyword in Google Ads.
         identifier: "{{ var('google_ads_keyword_stats_identifier', 'keyword_stats') }}"
+        config:
+          enabled: "{{ var('ad_reporting__google_ads_enabled', true) }}"
         columns:
           - name: customer_id
             description: "{{ doc('external_customer_id') }}"
@@ -223,6 +231,8 @@ sources:
       - name: account_stats
         description: Each record represents the daily performance of an account in Google Ads broken down to the ad network and device type.
         identifier: "{{ var('google_ads_account_stats_identifier', 'account_stats') }}"
+        config:
+          enabled: "{{ var('ad_reporting__google_ads_enabled', true) }}"
         columns:
           - name: customer_id
             description: "{{ doc('external_customer_id') }}"
