@@ -1,7 +1,6 @@
 {% macro get_campaign_history_columns() %}
 
 {% set columns = [
-    {"name": "_fivetran_synced", "datatype": dbt_utils.type_timestamp()},
     {"name": "advertising_channel_subtype", "datatype": dbt_utils.type_string()},
     {"name": "advertising_channel_type", "datatype": dbt_utils.type_string()},
     {"name": "customer_id", "datatype": dbt_utils.type_int()},
