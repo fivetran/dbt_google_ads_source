@@ -1,7 +1,6 @@
 {% macro get_ad_stats_columns() %}
 
 {% set columns = [
-    {"name": "_fivetran_id", "datatype": dbt_utils.type_string()},
     {"name": "ad_group", "datatype": dbt_utils.type_string()},
     {"name": "ad_group_id", "datatype": dbt_utils.type_string()},
     {"name": "ad_id", "datatype": dbt_utils.type_int()},
