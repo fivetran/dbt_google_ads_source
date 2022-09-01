@@ -27,3 +27,21 @@ models:
     +materialized: table
     tmp:
       +materialized: view
+
+models:
+  stg_google_ads__account_history:
+    +enabled: false
+  stg_google_ads__account_stats:
+    +enabled: false
+  stg_google_ads__ad_group_criterion_history:
+    +enabled: false
+  stg_google_ads_ad_group_history:
+    +enabled: false
+  stg_google_ads_ad_group_stats:
+    +enabled: false
+  stg_google_ads__campaign_history:
+    +enabled: false
+  stg_google_ads__campaign_stats:
+    +enabled: false
+  stg_google_ads__keyword_stats:
+    +enabled: false
