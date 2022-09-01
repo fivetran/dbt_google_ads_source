@@ -27,7 +27,7 @@ final as (
         date as date_day, 
         ad_group_id,
         ad_group,
-        split('ad_group','adGroups/')[1] as ad_group_parsed,
+        split('ad_group','adGroups/',-1)[1] as ad_group_parsed,
         {# {% if target.type == 'spark' %} #}
         coalesce(cast(ad_group_id as {{ dbt_utils.type_string() }}), split('ad_group','adGroups/')[1]) as ad_group_id_coalesce,
         {# {% else %}
