@@ -27,9 +27,9 @@ final as (
         date as date_day, 
         ad_group_id,
         ad_group,
-        split('ad_group','adGroups/') as ad_group_split,
+        split(ad_group,'adGroups/') as ad_group_split,
         {# {% if target.type == 'spark' %} #}
-        coalesce(cast(ad_group_id as {{ dbt_utils.type_string() }}), split('ad_group','adGroups/')[1]) as ad_group_id_coalesce,
+        coalesce(cast(ad_group_id as {{ dbt_utils.type_string() }}), split(ad_group,'adGroups/')[1]) as ad_group_id_coalesce,
         {# {% else %}
         coalesce(cast(ad_group_id as {{ dbt_utils.type_string() }}), {{ dbt_utils.split_part(string_text='ad_group', delimiter_text="'adGroups/'", part_number=2) }}) as ad_group_id,
         {% endif %} #}
