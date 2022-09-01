@@ -92,35 +92,35 @@ The type of the Criterion.
 {% enddocs %}
 
 {% docs base_url %}
-The base URL of the ad, extracted from the `effective_final_url`.
+The base URL of the ad, extracted from the `final_urls`.
 {% enddocs %}
 
 {% docs url_host %}
-The URL host of the ad, extracted from the `effective_final_url`.
+The URL host of the ad, extracted from the `final_urls`.
 {% enddocs %}
 
 {% docs url_path %}
-The URL path of the ad, extracted from the `effective_final_url`.
+The URL path of the ad, extracted from the `final_urls`.
 {% enddocs %}
 
 {% docs utm_source %}
-The utm_source parameter of the ad, extracted from the `effective_final_url`.
+The utm_source parameter of the ad, extracted from the `final_urls`.
 {% enddocs %}
 
 {% docs utm_medium %}
-The utm_medium parameter of the ad, extracted from the `effective_final_url`.
+The utm_medium parameter of the ad, extracted from the `final_urls`.
 {% enddocs %}
 
 {% docs utm_campaign %}
-The utm_campaign parameter of the ad, extracted from the `effective_final_url`.
+The utm_campaign parameter of the ad, extracted from the `final_urls`.
 {% enddocs %}
 
 {% docs utm_content %}
-The utm_content parameter of the ad, extracted from the `effective_final_url`.
+The utm_content parameter of the ad, extracted from the `final_urls`.
 {% enddocs %}
 
 {% docs utm_term %}
-The utm_term parameter of the ad, extracted from the `effective_final_url`.
+The utm_term parameter of the ad, extracted from the `final_urls`.
 {% enddocs %}
 
 {% docs updated_at %}
@@ -137,4 +137,12 @@ The type of the ad group in Google Ads.
 
 {% docs is_most_recent_record %}
 Boolean representing whether the record is the most recent version of the object.
+{% enddocs %}
+
+{% docs ad_network_type %}
+The Google Ad network type used across the account.
+{% enddocs %}
+
+{% docs device %}
+Account ad performance per unique device where the ads were served.
 {% enddocs %}
