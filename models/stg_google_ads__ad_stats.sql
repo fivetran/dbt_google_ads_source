@@ -29,7 +29,7 @@ final as (
         ad_group,
         split('ad_group','adGroups/')[1] as ad_group_parsed,
         {# {% if target.type == 'spark' %} #}
-        coalesce(cast(ad_group_id as {{ dbt_utils.type_string() }}), split('ad_group','adGroups/')[1]) as ad_group_id,
+        coalesce(cast(ad_group_id as {{ dbt_utils.type_string() }}), split('ad_group','adGroups/')[1]) as ad_group_id_coalesce,
         {# {% else %}
         coalesce(cast(ad_group_id as {{ dbt_utils.type_string() }}), {{ dbt_utils.split_part(string_text='ad_group', delimiter_text="'adGroups/'", part_number=2) }}) as ad_group_id,
         {% endif %} #}
