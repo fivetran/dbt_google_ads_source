@@ -29,7 +29,7 @@ final as (
         coalesce(cast(ad_group_id as {{ dbt_utils.type_string() }}), split('ad_group','adGroups/')[1]) as ad_group_id,
         {% else %}
         coalesce(cast(ad_group_id as {{ dbt_utils.type_string() }}), {{ dbt_utils.split_part(string_text='ad_group', delimiter_text="'adGroups/'", part_number=2) }}) as ad_group_id,
-        {% endif %%}
+        {% endif %}
         keyword_ad_group_criterion,
         ad_network_type,
         device,
