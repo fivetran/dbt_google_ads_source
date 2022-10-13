@@ -23,7 +23,7 @@ final as (
     select
         customer_id as account_id, 
         date as date_day, 
-        cast(id as {{ dbt_utils.type_string() }}) as ad_group_id, 
+        cast(id as {{ dbt.type_string() }}) as ad_group_id, 
         campaign_id, 
         device,
         ad_network_type,

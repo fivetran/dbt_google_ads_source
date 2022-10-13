@@ -22,7 +22,7 @@ fields as (
 final as (
     
     select 
-        cast(ad_group_id as {{ dbt_utils.type_string() }}) as ad_group_id, 
+        cast(ad_group_id as {{ dbt.type_string() }}) as ad_group_id, 
         id as ad_id,
         name as ad_name,
         updated_at,
@@ -40,7 +40,7 @@ final_urls as (
     select 
         *,
         --Extract the first url within the list of urls provided within the final_urls field
-        {{ dbt_utils.split_part(string_text='final_urls', delimiter_text="','", part_number=1) }} as final_url
+        {{ dbt.split_part(string_text='final_urls', delimiter_text="','", part_number=1) }} as final_url
 
     from final
 
@@ -49,7 +49,7 @@ final_urls as (
 url_fields as (
     select 
         *,
-        {{ dbt_utils.split_part('final_url', "'?'", 1) }} as base_url,
+        {{ dbt.split_part('final_url', "'?'", 1) }} as base_url,
         {{ dbt_utils.get_url_host('final_url') }} as url_host,
         '/' || {{ dbt_utils.get_url_path('final_url') }} as url_path,
         {{ dbt_utils.get_url_parameter('final_url', 'utm_source') }} as utm_source,
