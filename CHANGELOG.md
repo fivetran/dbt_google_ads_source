@@ -1,7 +1,8 @@
 # dbt_google_ads_source v0.8.1
 
 ## Updates
-- Added `'databricks'` in `src_google_ads.yml` for database configs in order to be compatible for an earlier release of the dbt-databricks adapter.
+- Added `'databricks'` in `src_google_ads.yml` for database configs in order to be compatible for an earlier release of the dbt-databricks adapter. [#32](https://github.com/fivetran/dbt_google_ads_source/pull/32)
+- Updated `README.md` to reflect `dbt-labs/spark_utils` in dependency matrix. [#32](https://github.com/fivetran/dbt_google_ads_source/pull/32)
 
 # dbt_google_ads_source v0.8.0
 ## 🚨 Breaking Changes 🚨
