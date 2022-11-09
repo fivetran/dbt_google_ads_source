@@ -1,3 +1,5 @@
+# dbt_google_ads_source v0.8.1
+
 # dbt_google_ads_source v0.8.0
 ## 🚨 Breaking Changes 🚨
 - The `adwords` api version of the package has been fully removed. As the Fivetran Google Ads connector now requires the Google Ads API, this functionality is no longer used. ([#29](https://github.com/fivetran/dbt_google_ads_source/pull/29))
