@@ -106,11 +106,15 @@ This dbt package is dependent on the following dbt packages. Please be aware tha
 > IMPORTANT: If you have any of these dependent packages in your own `packages.yml` file, we highly recommend that you remove them from your root `packages.yml` to avoid package version conflicts.
 ```yml
 packages:
-    - package: fivetran/fivetran_utils
-      version: [">=0.3.0", "<0.4.0"]
+  - package: fivetran/fivetran_utils
+    version: [">=0.3.0", "<0.4.0"]
 
-    - package: dbt-labs/dbt_utils
-      version: [">=0.8.0", "<0.9.0"]
+  - package: dbt-labs/dbt_utils
+    version: [">=0.8.0", "<0.9.0"]
+
+  - package: dbt-labs/spark_utils
+    version: [">=0.3.0", "<0.4.0"]
+
 ```
           
 # 🙌 How is this package maintained and can I contribute?
