@@ -25,7 +25,7 @@ final as (
     select 
         customer_id as account_id, 
         date as date_day, 
-        {% if target.type == '!!!!!!! REPLACE 'spark' WITH 'spark','databricks' OR EQUIV !!!!!!!' %}
+        {% if target.type in ('spark','databricks') %}
         coalesce(cast(ad_group_id as {{ dbt.type_string() }}), split(ad_group,'adGroups/')[1]) as ad_group_id,
         {% else %}
         coalesce(cast(ad_group_id as {{ dbt.type_string() }}), {{ dbt.split_part(string_text='ad_group', delimiter_text="'adGroups/'", part_number=2) }}) as ad_group_id,
