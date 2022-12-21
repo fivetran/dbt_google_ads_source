@@ -36,6 +36,8 @@
     - `dbt.current_timestamp_backcompat`
     - `dbt.current_timestamp_in_utc_backcompat`
 - `packages.yml` has been updated to reflect new default `fivetran/fivetran_utils` version, previously `[">=0.3.0", "<0.4.0"]` now `[">=0.4.0", "<0.5.0"]`.
+- `packages.yml` has been updated to reflect the most up to date version of dbt-expectations `[">=0.8.0", "<0.9.0"]`.
+- The `regexp_instr` macro has been added to the macros folder as a shim for spark adapters. Additional details for how to disaptch the macro have been added to the README Databricks compatibility section.
 
 # dbt_google_ads_source v0.8.1
 
