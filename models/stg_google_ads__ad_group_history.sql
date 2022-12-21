@@ -23,7 +23,7 @@ fields as (
 final as (
     
     select 
-        cast(id as {{ dbt_utils.type_string() }}) as ad_group_id,
+        cast(id as {{ dbt.type_string() }}) as ad_group_id,
         updated_at,
         type as ad_group_type, 
         campaign_id, 

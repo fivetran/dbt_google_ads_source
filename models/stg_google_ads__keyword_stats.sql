@@ -24,7 +24,7 @@ final as (
         _fivetran_id as keyword_id,
         customer_id as account_id, 
         date as date_day, 
-        cast(ad_group_id as {{ dbt_utils.type_string() }}) as ad_group_id,
+        cast(ad_group_id as {{ dbt.type_string() }}) as ad_group_id,
         ad_group_criterion_criterion_id as criterion_id,
         campaign_id, 
         clicks, 
