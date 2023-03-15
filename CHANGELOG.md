@@ -1,3 +1,6 @@
+# dbt_google_ads_source v0.9.1
+## Under the Hood Updates
+- The dbt-expectations regex macro received an update that included a new `flags` argument. This argument is not included in the replica macro located within this package. As such, the update needs to be reflected in order to allow the downstream references of the macro to succeed.
 # dbt_google_ads_source v0.9.0
 
 ## 🚨 Breaking Changes 🚨:
