@@ -1,3 +1,9 @@
+# dbt_google_ads_source v0.UPDATE.UPDATE
+
+ ## Under the Hood:
+
+- Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job.
+- Updated the pull request [templates](/.github).
 # dbt_google_ads_source v0.9.1
 ## Under the Hood Updates
 - The dbt-expectations [regex_inst macro received an update](https://github.com/calogica/dbt-expectations/pull/247) that included a new `flags` argument. This argument is not included in the replica macro located within this package. As such, the update needs to be reflected in order to allow the downstream references of the macro to succeed. ([#35](https://github.com/fivetran/dbt_google_ads_source/pull/35))
