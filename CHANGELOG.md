@@ -1,3 +1,11 @@
+# dbt_google_ads_source v0.9.2
+## 🐛 Bug fix
+- Updated configuration to allow the source database to be set as `target.database` when using Databricks. ([#38](https://github.com/fivetran/dbt_google_ads_source/pull/38))
+
+## Under the Hood:
+- Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job. ([#37](https://github.com/fivetran/dbt_google_ads_source/pull/37))
+- Updated the pull request [templates](/.github). ([#37](https://github.com/fivetran/dbt_google_ads_source/pull/37))
+
 # dbt_google_ads_source v0.9.1
 ## Under the Hood Updates
 - The dbt-expectations [regex_inst macro received an update](https://github.com/calogica/dbt-expectations/pull/247) that included a new `flags` argument. This argument is not included in the replica macro located within this package. As such, the update needs to be reflected in order to allow the downstream references of the macro to succeed. ([#35](https://github.com/fivetran/dbt_google_ads_source/pull/35))
