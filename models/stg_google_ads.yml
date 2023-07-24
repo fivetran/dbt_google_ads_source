@@ -68,6 +68,8 @@ models:
         description: "{{ doc('ad_id') }}"
         tests:
           - not_null
+      - name: ad_name
+        description: The name of the ad.
       - name: updated_at
         description: "{{ doc('updated_at') }}"
       - name: display_url
@@ -78,6 +80,10 @@ models:
         description: "{{ doc('ad_status') }}"
       - name: is_most_recent_record
         description: "{{ doc('is_most_recent_record') }}"
+      - name: final_urls
+        description: A list of urls that are used for the ad.
+      - name: final_url_suffix
+        description: The suffix to use when constructing a final URL.
       - name: source_final_urls
         description: The original list of final urls expressed as an array. Please be aware the test used on this field is intended to warn you if you have fields with multiple urls. If you do, the `final_url` field will filter down the urls within the array to just the first. Therefore, this package will only leverage one of possibly many urls within this field array.
         tests:
@@ -171,10 +177,18 @@ models:
         description: General status of the campaign.
       - name: tracking_url_template
         description: The tracking url template being used throughout the campaign ads.
+      - name: final_url_suffix
+        description: Suffix used to append query parameters to landing pages that are served with parallel tracking.
       - name: campaign_name
         description: "{{ doc('campaign_name') }}"
       - name: account_id
         description: "{{ doc('external_customer_id') }}"
+      - name: utm_source
+        description: "{{ doc('utm_source') }}"
+      - name: utm_medium
+        description: "{{ doc('utm_medium') }}"
+      - name: utm_campaign
+        description: "{{ doc('utm_campaign') }}"
       - name: is_most_recent_record
         description: "{{ doc('is_most_recent_record') }}"
 
