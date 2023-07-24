@@ -1,13 +1,14 @@
-# dbt_google_ads_source v0.9.3
+# dbt_google_ads_source v0.10.0
+
+## 🚨 Breaking Changes 🚨
+- Added `final_url_suffix` into the `stg_google_ads__ad_history` model in order to gather all the UTM information. With this, the package now provides preference to the `final_url_suffix` field as opposed to the `final_urls` when constructing the `final_url` field in the staging model. Be sure to pay attention as this could change the output of your Google Ads data from the previous build of the package. This was done to be more in line with Google's guidelines on defining UTM parameters for ads.
 
 ## 🎉 Feature Enhancements 🎉
 - Updated macros, `get_ad_history_columns` and `get_campaign_history_columns`, to include `final_url_suffix` as a new column.
-- Added `final_url_suffix` into models, `stg_google_ads__campaign_history` and `stg_google_ads__ad_history` in order to gather all the UTM information for each campaign and ad because the UTMs can only be configured in this field when the campaign is set up.
-- Updated UTM extraction logic to search UTMs first in the final_urls (for ad_history model) or tracking_url_template (for campaign_history model), and if null, search in final_url_suffix.
+- Added `final_url_suffix` into the `stg_google_ads__campaign_history` model in order to gather all the UTM information for each campaign and because the UTMs can only be configured in this field when the campaign is set up.
 
 ## Contributors
-- [@jocelyn-metricbox](https://github.com/jocelyn-metricbox) 
-
+- [@jocelyn-metricbox](https://github.com/jocelyn-metricbox)
 
 # dbt_google_ads_source v0.9.2
 ## 🐛 Bug fix

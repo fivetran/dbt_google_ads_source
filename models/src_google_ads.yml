@@ -60,6 +60,8 @@ sources:
             description: "{{ doc('ad_status') }}"
           - name: final_urls
             description: A list of urls that are used for the ad.
+          - name: final_url_suffix
+            description: The suffix to use when constructing a final URL.
 
       - name: ad_group_history
         description: Each record represents a version of an ad group in Google Ads.

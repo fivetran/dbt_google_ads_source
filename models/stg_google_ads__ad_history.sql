@@ -31,8 +31,8 @@ final as (
         display_url,
         final_urls as source_final_urls, 
         replace(replace(final_urls, '[', ''),']','') as final_urls,
-         --Adding final_url_suffix because sometimes the UTMs are only configured in the final_url_suffix than the final_urls
-        final_url_suffix,
+        --Adding final_url_suffix because sometimes the UTMs are only configured in the final_url_suffix rather than the final_urls
+        nullif(final_url_suffix, '') as final_url_suffix,
         row_number() over (partition by id, ad_group_id order by updated_at desc) = 1 as is_most_recent_record
     from fields
 ),
@@ -55,16 +55,16 @@ url_fields as (
         {{ dbt_utils.get_url_host('final_url') }} as url_host,
         '/' || {{ dbt_utils.get_url_path('final_url') }} as url_path,
         --Extracting UTMs for url report's use 
-        coalesce( {{ dbt_utils.get_url_parameter('final_url', 'utm_source') }} ,
-                  {{ dbt_utils.get_url_parameter('final_url_suffix', 'utm_source') }} ) as utm_source,
-        coalesce( {{ dbt_utils.get_url_parameter('final_url', 'utm_medium') }} ,
-                  {{ dbt_utils.get_url_parameter('final_url_suffix', 'utm_medium') }} ) as utm_medium,
-        coalesce( {{ dbt_utils.get_url_parameter('final_url', 'utm_campaign') }} ,
-                  {{ dbt_utils.get_url_parameter('final_url_suffix', 'utm_campaign') }} ) as utm_campaign,
-        coalesce( {{ dbt_utils.get_url_parameter('final_url', 'utm_content') }} ,
-                  {{ dbt_utils.get_url_parameter('final_url_suffix', 'utm_content') }} ) as utm_content,
-        coalesce( {{ dbt_utils.get_url_parameter('final_url', 'utm_term') }} ,
-                  {{ dbt_utils.get_url_parameter('final_url_suffix', 'utm_term') }} ) as utm_term
+        coalesce( {{ dbt_utils.get_url_parameter('final_url_suffix', 'utm_source') }} ,
+                {{ dbt_utils.get_url_parameter('final_url', 'utm_source') }} ) as utm_source,
+        coalesce( {{ dbt_utils.get_url_parameter('final_url_suffix', 'utm_medium') }} ,
+                {{ dbt_utils.get_url_parameter('final_url', 'utm_medium') }} ) as utm_medium,
+        coalesce( {{ dbt_utils.get_url_parameter('final_url_suffix', 'utm_campaign') }} ,
+                {{ dbt_utils.get_url_parameter('final_url', 'utm_campaign') }} ) as utm_campaign,
+        coalesce( {{ dbt_utils.get_url_parameter('final_url_suffix', 'utm_content') }} ,
+                {{ dbt_utils.get_url_parameter('final_url', 'utm_content') }} ) as utm_content,
+        coalesce( {{ dbt_utils.get_url_parameter('final_url_suffix', 'utm_term') }} ,
+                {{ dbt_utils.get_url_parameter('final_url', 'utm_term') }} ) as utm_term
     from final_urls
 )
 
