@@ -34,6 +34,15 @@ final as (
         serving_status,
         status,
         tracking_url_template,
+        --Adding final_url_suffix because sometimes the UTMs are only configured in the final_url_suffix than the tracking template
+        final_url_suffix,
+        --Extracting UTMs for campaign report's use 
+        coalesce( {{ dbt_utils.get_url_parameter('tracking_url_template', 'utm_source') }} ,
+                  {{ dbt_utils.get_url_parameter('final_url_suffix', 'utm_source') }} ) as utm_source,
+        coalesce( {{ dbt_utils.get_url_parameter('tracking_url_template', 'utm_medium') }} ,
+                  {{ dbt_utils.get_url_parameter('final_url_suffix', 'utm_medium') }} ) as utm_medium,
+        coalesce( {{ dbt_utils.get_url_parameter('tracking_url_template', 'utm_campaign') }} ,
+                  {{ dbt_utils.get_url_parameter('final_url_suffix', 'utm_campaign') }} ) as utm_campaign,
         row_number() over (partition by id order by updated_at desc) = 1 as is_most_recent_record
     from fields
 )

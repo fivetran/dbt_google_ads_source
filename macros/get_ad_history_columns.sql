@@ -4,6 +4,7 @@
     {"name": "ad_group_id", "datatype": dbt.type_int()},
     {"name": "display_url", "datatype": dbt.type_string()},
     {"name": "final_urls", "datatype": dbt.type_string()},
+    {"name": "final_url_suffix", "datatype": dbt.type_string()},
     {"name": "id", "datatype": dbt.type_int()},
     {"name": "name", "datatype": dbt.type_string()},
     {"name": "status", "datatype": dbt.type_string()},
