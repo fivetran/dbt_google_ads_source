@@ -150,7 +150,6 @@ models:
           combination_of_columns:
             - campaign_id
             - updated_at
-            - _fivetran_synced
     columns:
       - name: campaign_id
         description: "{{ doc('campaign_id') }}"

@@ -2,3 +2,4 @@
 
 select * 
 from {{ var('campaign_history') }}
+where _fivetran_active
