@@ -9,7 +9,8 @@
     {"name": "type", "datatype": dbt.type_string()},
     {"name": "status", "datatype": dbt.type_string()},
     {"name": "keyword_match_type", "datatype": dbt.type_string()},
-    {"name": "keyword_text", "datatype": dbt.type_string()}
+    {"name": "keyword_text", "datatype": dbt.type_string()},
+    {"name": "_fivetran_active", "datatype": "boolean"}
 ] %}
 
 {{ return(columns) }}

@@ -7,7 +7,8 @@
     {"name": "descriptive_name", "datatype": dbt.type_string()},
     {"name": "id", "datatype": dbt.type_int()},
     {"name": "time_zone", "datatype": dbt.type_string()},
-    {"name": "updated_at", "datatype": dbt.type_timestamp()}
+    {"name": "updated_at", "datatype": dbt.type_timestamp()},
+    {"name": "_fivetran_active", "datatype": "boolean"}
 ] %}
 
 {{ return(columns) }}

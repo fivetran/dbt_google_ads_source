@@ -11,7 +11,8 @@
     {"name": "start_date", "datatype": dbt.type_string()},
     {"name": "status", "datatype": dbt.type_string()},
     {"name": "tracking_url_template", "datatype": dbt.type_string()},
-    {"name": "updated_at", "datatype": dbt.type_timestamp()}
+    {"name": "updated_at", "datatype": dbt.type_timestamp()},
+    {"name": "_fivetran_active", "datatype": "boolean"}
 ] %}
 
 {{ return(columns) }}
