@@ -33,6 +33,7 @@ final as (
         replace(replace(final_urls, '[', ''),']','') as final_urls,
         row_number() over (partition by id, ad_group_id order by updated_at desc) = 1 as is_most_recent_record
     from fields
+    where coalesce(_fivetran_active, true)
 ),
 
 final_urls as (

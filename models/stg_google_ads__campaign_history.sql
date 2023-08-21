@@ -36,6 +36,7 @@ final as (
         tracking_url_template,
         row_number() over (partition by id order by updated_at desc) = 1 as is_most_recent_record
     from fields
+    where coalesce(_fivetran_active, true)
 )
 
 select * 

@@ -31,6 +31,7 @@ final as (
         descriptive_name as account_name,
         row_number() over (partition by id order by updated_at desc) = 1 as is_most_recent_record
     from fields
+    where coalesce(_fivetran_active, true)
 )
 
 select * 
