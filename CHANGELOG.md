@@ -1,6 +1,6 @@
 # dbt_google_ads_source v0.9.3
 
-This release addresses a bug that was introduced via a grain change in the Google Ads connector `*_history` tables. This bug introduced duplicates and uniqueness test failures in staging `*_history` models.
+This release addresses a bug that was introduced via a grain change in the Google Ads connector `*_history` tables. This bug introduced duplicates and uniqueness test failures in staging `*_history` models ([PR #41](https://github.com/fivetran/dbt_google_ads_source/pull/41)).
 ## 🐛 Bug fix
 - Added the new `_fivetran_active` field to the `get_<table>_history_columns()` macros. This will create a `null` version of the column if `_fivetran_active` is not found in your source tables yet.
 - Added a `where coalesce(_fivetran_active, true)` filter to the final CTEs of the staging `*_history` models.
