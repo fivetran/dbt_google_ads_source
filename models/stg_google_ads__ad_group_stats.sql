@@ -1,3 +1,5 @@
+ADD source_relation WHERE NEEDED + CHECK JOINS AND WINDOW FUNCTIONS! (Delete this line when done.)
+
 {{ config(enabled=var('ad_reporting__google_ads_enabled', True)) }}
 
 with base as (
@@ -15,12 +17,19 @@ fields as (
                 staging_columns=get_ad_group_stats_columns()
             )
         }}
+    
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='google_ads_union_schemas', 
+            union_database_variable='google_ads_union_databases') 
+        }}
+
     from base
 ),
 
 final as (
-    
+
     select
+        source_relation,
         customer_id as account_id, 
         date as date_day, 
         cast(id as {{ dbt.type_string() }}) as ad_group_id, 
