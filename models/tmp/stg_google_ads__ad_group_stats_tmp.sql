@@ -7,7 +7,7 @@
         schema_variable='google_ads_schema', 
         default_database=target.database,
         default_schema='google_ads',
-        default_variable='ad_group_stats_source',
+        default_variable='ad_group_stats',
         union_schema_variable='google_ads_union_schemas',
         union_database_variable='google_ads_union_databases'
     )
