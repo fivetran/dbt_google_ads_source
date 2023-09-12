@@ -1,8 +1,9 @@
 # dbt_google_ads_source v0.9.4
 
+[PR #45](https://github.com/fivetran/dbt_google_ads_source/pull/45) includes the following updates:
 ## Under the Hood:
-- Updates the dbt-expectations dependency to the latest version.
-- Updates the DECISIONLOG to clarify why there exist differences among aggregations across different grains.
+- Updates the [dbt-expectations](https://github.com/calogica/dbt-expectations/releases) dependency to the latest version.
+- Updates the [DECISIONLOG](DECISIONLOG.md) to clarify why there exist differences among aggregations across different grains.
 
 # dbt_google_ads_source v0.9.3
 
