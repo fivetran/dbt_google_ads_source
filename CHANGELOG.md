@@ -2,7 +2,7 @@
 
 ## Under the Hood:
 - Updates the dbt-expectations dependency to the latest version.
-- Updates the README to clarify why there exist differences among aggregations across different grains.
+- Updates the DECISIONLOG to clarify why there exist differences among aggregations across different grains.
 
 # dbt_google_ads_source v0.9.3
 
