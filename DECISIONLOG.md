@@ -4,6 +4,7 @@ It was discovered within the source data that a single Ad can be associated with
 
 This logic was only applied to the `stg_google_ads__ad_history` model as it was discovered this relationship was unique to ads and ad groups. If you experience this relationship among any of the other ad hierarchies, please open and [issue](https://github.com/fivetran/dbt_google_ads_source/issues/new?assignees=&labels=bug%2Ctriage&template=bug-report.yml&title=%5BBug%5D+%3Ctitle%3E) and we can continue the discussion!
 
+
 ## Why don't metrics add up across different grains (Ex. ad level vs campaign level)?
 Not all ads are served at the ad level. In other words, there are some ads that are served only at the ad group, campaign, etc. levels. The implications are that since not ads are included in the ad-level report, their associated spend, for example, won't be included at that grain. Therefore your spend totals may differ across the ad grain and another grain. 
 
