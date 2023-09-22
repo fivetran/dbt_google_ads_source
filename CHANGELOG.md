@@ -1,9 +1,14 @@
+# dbt_google_ads_source v0.10.0
+
+[PR #](https://github.com/fivetran/dbt_google_ads_source/pull/) includes the following updates:
+## Under the Hood:
+- Updates the [dbt-expectations](https://github.com/calogica/dbt-expectations/releases) dependency to the latest version.
+
 # dbt_google_ads_source v0.9.5
 ## Rollback
 [PR #46](https://github.com/fivetran/dbt_google_ads_source/pull/46) rolls back [PR #45](https://github.com/fivetran/dbt_google_ads_source/pull/45) 
 
 - This was causing conflicting dbt-expectation versions because of the version required in other packages.
-
 
 # dbt_google_ads_source v0.9.4
 
