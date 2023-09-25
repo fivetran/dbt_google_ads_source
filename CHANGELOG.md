@@ -1,6 +1,6 @@
 # dbt_google_ads_source v0.10.0
 
-[PR #](https://github.com/fivetran/dbt_google_ads_source/pull/) includes the following updates:
+[PR #47](https://github.com/fivetran/dbt_google_ads_source/pull/47) includes the following updates:
 ## Under the Hood:
 - Updates the [dbt-expectations](https://github.com/calogica/dbt-expectations/releases) dependency to the latest version.
 
