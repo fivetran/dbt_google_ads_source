@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: google_ads
+  - name: google_ads # This source will only be used if you are using a single google_ads source connector. If multiple sources are being unioned, their tables will be directly referenced via adapter.get_relation.
     schema: "{{ var('google_ads_schema', 'google_ads') }}"
     database: "{% if target.type != 'spark' %}{{ var('google_ads_database', target.database) }}{% endif %}"
 

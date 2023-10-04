@@ -17,12 +17,19 @@ fields as (
             )
         }}
         
+    
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='google_ads_union_schemas', 
+            union_database_variable='google_ads_union_databases') 
+        }}
+
     from base
 ),
 
 final as (
-    
-    select 
+
+    select
+        source_relation, 
         customer_id as account_id, 
         date as date_day, 
         {% if target.type in ('spark','databricks') %}

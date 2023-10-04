@@ -1,14 +1,22 @@
 # dbt_google_ads_source v0.10.0
 
 ## Dependency Updates
-- Removes the dependency on [dbt-expectations](https://github.com/calogica/dbt-expectations/releases). ([PR #47](https://github.com/fivetran/dbt_google_ads_source/pull/47))
-- Specifically we removed the `dbt_expectations.expect_column_values_to_not_match_regex_list` test. 
+- Removes the dependency on [dbt-expectations](https://github.com/calogica/dbt-expectations/releases). Specifically we removed the `dbt_expectations.expect_column_values_to_not_match_regex_list` test. ([PR #47](https://github.com/fivetran/dbt_google_ads_source/pull/47))
+
+## Feature Update 🎉
+- Unioning capability! This adds the ability to union source data from multiple google_ads connectors. Refer to the [README](https://github.com/fivetran/dbt_google_ads_source/blob/main/README.md) for more details. ([PR #43](https://github.com/fivetran/dbt_google_ads_source/pull/43))
+
+## Under the Hood 🚘
+- Updated tmp models to union source data using the `fivetran_utils.union_data` macro. 
+- To distinguish which source each field comes from, added `source_relation` column in each staging model and applied the `fivetran_utils.source_relation` macro. ([PR #43](https://github.com/fivetran/dbt_google_ads_source/pull/43))
+- Updated tests to account for the new `source_relation` column. ([PR #43](https://github.com/fivetran/dbt_google_ads_source/pull/43))
 
 # dbt_google_ads_source v0.9.5
 ## Rollback
 [PR #46](https://github.com/fivetran/dbt_google_ads_source/pull/46) rolls back [PR #45](https://github.com/fivetran/dbt_google_ads_source/pull/45) 
 
 - This was causing conflicting dbt-expectation versions because of the version required in other packages.
+
 
 # dbt_google_ads_source v0.9.4
 
