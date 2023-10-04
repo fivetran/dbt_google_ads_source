@@ -1,8 +1,8 @@
 # dbt_google_ads_source v0.10.0
 
 ## Under the Hood:
-- Removes the dependency on [dbt-expectations](https://github.com/calogica/dbt-expectations/releases). 
-([PR #47](https://github.com/fivetran/dbt_google_ads_source/pull/47))
+- Removes the dependency on [dbt-expectations](https://github.com/calogica/dbt-expectations/releases). ([PR #47](https://github.com/fivetran/dbt_google_ads_source/pull/47))
+- Specifically we removed the `dbt_expectations.expect_column_values_to_not_match_regex_list` test. 
 
 # dbt_google_ads_source v0.9.5
 ## Rollback
