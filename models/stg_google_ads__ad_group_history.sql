@@ -17,12 +17,19 @@ fields as (
             )
         }}
         
+    
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='google_ads_union_schemas', 
+            union_database_variable='google_ads_union_databases') 
+        }}
+
     from base
 ),
 
 final as (
-    
-    select 
+
+    select
+        source_relation, 
         cast(id as {{ dbt.type_string() }}) as ad_group_id,
         updated_at,
         type as ad_group_type, 
@@ -30,7 +37,7 @@ final as (
         campaign_name, 
         name as ad_group_name, 
         status as ad_group_status,
-        row_number() over (partition by id order by updated_at desc) = 1 as is_most_recent_record
+        row_number() over (partition by source_relation, id order by updated_at desc) = 1 as is_most_recent_record
     from fields
     where coalesce(_fivetran_active, true)
 )

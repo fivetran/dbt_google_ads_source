@@ -15,12 +15,19 @@ fields as (
                 staging_columns=get_ad_group_criterion_history_columns()
             )
         }}
+    
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='google_ads_union_schemas', 
+            union_database_variable='google_ads_union_databases') 
+        }}
+
     from base
 ),
 
 final as (
-    
-    select 
+
+    select
+        source_relation, 
         id as criterion_id,
         cast(ad_group_id as {{ dbt.type_string() }}) as ad_group_id,
         base_campaign_id,
@@ -29,7 +36,7 @@ final as (
         status,
         keyword_match_type,
         keyword_text,
-        row_number() over (partition by id order by updated_at desc) = 1 as is_most_recent_record
+        row_number() over (partition by source_relation, id order by updated_at desc) = 1 as is_most_recent_record
     from fields
     where coalesce(_fivetran_active, true)
 )

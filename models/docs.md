@@ -146,3 +146,7 @@ The Google Ad network type used across the account.
 {% docs device %}
 Account ad performance per unique device where the ads were served.
 {% enddocs %}
+
+{% docs source_relation %}
+The source of the record if the unioning functionality is being used. If not this field will be empty.
+{% enddocs %}

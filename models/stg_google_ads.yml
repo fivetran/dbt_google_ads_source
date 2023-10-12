@@ -6,9 +6,12 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - account_id
             - updated_at
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: account_id
         description: "{{ doc('account_id') }}"
         tests:
@@ -31,9 +34,12 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - ad_group_id
             - updated_at
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: ad_group_id
         description: "{{ doc('ad_group_id') }}"
         tests:
@@ -58,10 +64,13 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - ad_id
             - ad_group_id
             - updated_at
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: ad_group_id
         description: "{{ doc('ad_group_id') }}"
       - name: ad_id
@@ -80,11 +89,6 @@ models:
         description: "{{ doc('is_most_recent_record') }}"
       - name: source_final_urls
         description: The original list of final urls expressed as an array. Please be aware the test used on this field is intended to warn you if you have fields with multiple urls. If you do, the `final_url` field will filter down the urls within the array to just the first. Therefore, this package will only leverage one of possibly many urls within this field array.
-        tests:
-          - dbt_expectations.expect_column_values_to_not_match_regex_list:
-              regex_list: ","
-              match_on: any
-              severity: warn
       - name: final_url
         description: The first url in the list of the urls within the `final_urls` source field.
       - name: base_url
@@ -109,6 +113,7 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - ad_id
             - ad_network_type
             - device
@@ -116,6 +121,8 @@ models:
             - keyword_ad_group_criterion
             - date_day
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: account_id
         description: "{{ doc('external_customer_id') }}"
       - name: date_day
@@ -148,9 +155,12 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - campaign_id
             - updated_at
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: campaign_id
         description: "{{ doc('campaign_id') }}"
         tests:
@@ -183,10 +193,13 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - criterion_id
             - ad_group_id
             - updated_at
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: criterion_id
         description: Unique identifier of the ad group criterion.
         tests:
@@ -213,11 +226,14 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - ad_group_id
             - device
             - ad_network_type
             - date_day
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: account_id
         description: "{{ doc('external_customer_id') }}"
       - name: date_day
@@ -246,11 +262,14 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - campaign_id
             - ad_network_type
             - device
             - date_day
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: account_id
         description: "{{ doc('external_customer_id') }}"
       - name: date_day
@@ -277,9 +296,12 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - keyword_id
             - date_day
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: account_id
         description: "{{ doc('external_customer_id') }}"
       - name: date_day
@@ -308,11 +330,14 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - account_id
             - device
             - ad_network_type
             - date_day
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: account_id
         description: "{{ doc('external_customer_id') }}"
         tests:
