@@ -1,6 +1,6 @@
 {% macro google_ads_extract_url_parameter(field, url_parameter) -%}
 
-{{ adapter.dispatch('google_ads_extract_url_parameter', 'google_ads_source') (field, url_parameter) }}
+{{ return(adapter.dispatch('google_ads_extract_url_parameter', 'google_ads_source') (field, url_parameter)) }}
 
 {% endmacro %}
 
