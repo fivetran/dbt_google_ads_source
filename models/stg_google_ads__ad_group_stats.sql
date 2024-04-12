@@ -36,7 +36,8 @@ final as (
         ad_network_type,
         clicks, 
         cost_micros / 1000000.0 as spend, 
-        impressions
+        impressions,
+        conversions
         
         {{ fivetran_utils.fill_pass_through_columns('google_ads__ad_group_stats_passthrough_metrics') }}
 
