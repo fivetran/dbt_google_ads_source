@@ -11,7 +11,10 @@
     {"name": "date", "datatype": "date"},
     {"name": "device", "datatype": dbt.type_string()},
     {"name": "id", "datatype": dbt.type_int()},
-    {"name": "impressions", "datatype": dbt.type_int()}
+    {"name": "impressions", "datatype": dbt.type_int()},
+    {"name": "conversions", "datatype": dbt.type_int()},
+    {"name": "conversion_value", "datatype": dbt.type_int()},
+    {"name": "view_through_conversions", "datatype": dbt.type_int()}
 ] %}
 
 {{ fivetran_utils.add_pass_through_columns(columns, var('google_ads__ad_group_stats_passthrough_metrics')) }}

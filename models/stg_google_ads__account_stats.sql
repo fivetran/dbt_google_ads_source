@@ -34,7 +34,10 @@ final as (
         device,
         clicks, 
         cost_micros / 1000000.0 as spend, 
-        impressions
+        impressions,
+        conversions,
+        conversion_value,
+        view_through_conversions
         
         {{ fivetran_utils.fill_pass_through_columns('google_ads__account_stats_passthrough_metrics') }}
 

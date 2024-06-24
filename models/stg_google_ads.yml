@@ -149,6 +149,12 @@ models:
         description: "{{ doc('cost') }}"
       - name: impressions
         description: "{{ doc('impressions') }}"
+      - name: conversions
+        description: "{{ doc('conversions') }}"
+      - name: conversion_value
+        description: "{{ doc('conversion_value') }}"
+      - name: view_through_conversions
+        description: "{{ doc('view_through_conversions') }}"
 
   - name: stg_google_ads__campaign_history
     description: Each record represents a version of a campaign in Google Ads.
@@ -256,6 +262,12 @@ models:
         description: "{{ doc('cost') }}"
       - name: impressions
         description: "{{ doc('impressions') }}"
+      - name: conversions
+        description: "{{ doc('conversions') }}"
+      - name: conversion_value
+        description: "{{ doc('conversion_value') }}"
+      - name: view_through_conversions
+        description: "{{ doc('view_through_conversions') }}"
 
   - name: stg_google_ads__campaign_stats
     description: Each record represents the daily performance of a campaign in Google Ads broken down to the ad network and device type.
@@ -290,6 +302,12 @@ models:
         description: "{{ doc('cost') }}"
       - name: impressions
         description: "{{ doc('impressions') }}"
+      - name: conversions
+        description: "{{ doc('conversions') }}"
+      - name: conversion_value
+        description: "{{ doc('conversion_value') }}"
+      - name: view_through_conversions
+        description: "{{ doc('view_through_conversions') }}"
 
   - name: stg_google_ads__keyword_stats
     description: Each record represents the daily performance of a keyword in Google Ads.
@@ -324,6 +342,12 @@ models:
         description: "{{ doc('cost') }}"
       - name: impressions
         description: "{{ doc('impressions') }}"
+      - name: conversions
+        description: "{{ doc('conversions') }}"
+      - name: conversion_value
+        description: "{{ doc('conversion_value') }}"
+      - name: view_through_conversions
+        description: "{{ doc('view_through_conversions') }}"
 
   - name: stg_google_ads__account_stats
     description: Each record represents the daily performance of an account in Google Ads broken down to the ad network and device type.
@@ -356,3 +380,9 @@ models:
         description: "{{ doc('cost') }}"
       - name: impressions
         description: "{{ doc('impressions') }}"
+      - name: conversions
+        description: "{{ doc('conversions') }}"
+      - name: conversion_value
+        description: "{{ doc('conversion_value') }}"
+      - name: view_through_conversions
+        description: "{{ doc('view_through_conversions') }}"
