@@ -33,14 +33,14 @@ dispatch:
     search_order: ['spark_utils', 'dbt_utils']
 ```
 
-## Step 2: Install the package (skip if also using the `google_ads` transformation package)
-If you  are **not** using the [Google Ads transformation package](https://github.com/fivetran/dbt_google_ads), include the following package version in your `packages.yml` file. If you are installing the transform package, the source package is automatically installed as a dependency.
+## Step 2: Install the package (skip if also using the `google_ads` transformation or `ad_reportin` combination package)
+If you  are **not** using the [Google Ads transformation package](https://github.com/fivetran/dbt_google_ads) or the [Ad Reporting combination package](https://github.com/fivetran/dbt_ad_reporting), include the following package version in your `packages.yml` file. If you are installing the transform package, the source package is automatically installed as a dependency.
 > TIP: Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
 
 ```yml
 packages:
   - package: fivetran/google_ads_source
-    version: [">=0.10.0", "<0.11.0"] # we recommend using ranges to capture non-breaking changes automatically
+    version: [">=0.11.0", "<0.12.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
 ## Step 3: Define database and schema variables
 By default, this package runs using your destination and the `google_ads` schema. If this is not where your Google Ads data is (for example, if your google_ads schema is named `google_ads_fivetran`), add the following configuration to your root `dbt_project.yml` file:
@@ -85,6 +85,7 @@ vars:
       - name: "other_id"
         alias: "another_id"
 ```
+
 ### Change the build schema
 By default, this package builds the Google Ads staging models within a schema titled (`<target_schema>` + `_google_ads_source`) in your destination. If this is not where you would like your google_ads staging data to be written to, add the following configuration to your root `dbt_project.yml` file:
 
