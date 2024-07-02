@@ -33,12 +33,12 @@ final as (
         id as campaign_id, 
         ad_network_type,
         device,
-        clicks, 
-        cost_micros / 1000000.0 as spend, 
-        impressions,
-        conversions,
-        conversion_value,
-        view_through_conversions
+        coalesce(clicks, 0) as clicks, 
+        coalesce(cost_micros, 0) / 1000000.0 as spend, 
+        coalesce(impressions, 0) as impressions,
+        coalesce(conversions, 0) as conversions,
+        coalesce(conversion_value, 0) as conversion_value,
+        coalesce(view_through_conversions, 0) as view_through_conversions
         
         {{ google_ads_fill_pass_through_columns(pass_through_fields=var('google_ads__campaign_stats_passthrough_metrics'), except=['conversions', "conversion_value", "view_through_conversions"]) }}
 
