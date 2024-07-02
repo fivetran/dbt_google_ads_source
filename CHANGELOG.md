@@ -4,6 +4,9 @@ Addition of conversions! TODO
 Breaking change
 Updated PR templates
 
+## Contributors
+- [Seer Interactive](https://www.seerinteractive.com/?utm_campaign=Fivetran%20%7C%20Models&utm_source=Fivetran&utm_medium=Fivetran%20Documentation)
+
 # dbt_google_ads_source v0.10.1
 
 [PR #54](https://github.com/fivetran/dbt_google_ads_source/pull/54) includes the following updates: 
