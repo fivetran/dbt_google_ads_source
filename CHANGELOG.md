@@ -1,11 +1,22 @@
 # dbt_google_ads_source v0.11.0
 
-Addition of conversions! TODO
-Breaking change
-Updated PR templates
+[PR #59](https://github.com/fivetran/dbt_google_ads_source/pull/59) includes the following updates:
+
+## Feature Updates: Conversion Support!
+- We have added the following source fields to each `stg_google_ads__<entity>_stats` model:
+  - `conversions`
+  - `conversion_value`
+  - `view_through_conversions`
+- In the event that you were already passing the above fields in via our [passthrough columns](https://github.com/fivetran/dbt_google_ads_source?tab=readme-ov-file#passing-through-additional-metrics), the package will dynamically avoid "duplicate column" errors.
+> The above new field additions are 🚨 **breaking changes** 🚨 for users who were not already bringing in conversion fields via passthrough columns.
+
+## Under the Hood
+- Updated the package maintainer PR template.
+- Created `google_ads_fill_pass_through_columns` and `google_ads_add_pass_through_columns` macros to ensure that the new conversion fields are backwards compatible with users who have already included them via passthrough fields.
 
 ## Contributors
 - [Seer Interactive](https://www.seerinteractive.com/?utm_campaign=Fivetran%20%7C%20Models&utm_source=Fivetran&utm_medium=Fivetran%20Documentation)
+- [@fivetran-poonamagate](https://github.com/fivetran-poonamagate)
 
 # dbt_google_ads_source v0.10.1
 
