@@ -87,7 +87,7 @@ vars:
 ```
 
 ### Change the build schema
-By default, this package builds the Google Ads staging models within a schema titled (`<target_schema>` + `_google_ads_source`) in your destination. If this is not where you would like your google_ads staging data to be written to, add the following configuration to your root `dbt_project.yml` file:
+By default, this package builds the Google Ads staging models (10 views, 10 tables) within a schema titled (`<target_schema>` + `_google_ads_source`) in your destination. If this is not where you would like your google_ads staging data to be written to, add the following configuration to your root `dbt_project.yml` file:
 
 ```yml
 models:
