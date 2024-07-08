@@ -38,10 +38,10 @@ final as (
         coalesce(cost_micros, 0) / 1000000.0 as spend, 
         coalesce(impressions, 0) as impressions,
         coalesce(conversions, 0) as conversions,
-        coalesce(conversion_value, 0) as conversion_value,
+        coalesce(conversions_value, 0) as conversions_value,
         coalesce(view_through_conversions, 0) as view_through_conversions
         
-        {{ google_ads_fill_pass_through_columns(pass_through_fields=var('google_ads__ad_group_stats_passthrough_metrics'), except=['conversions', "conversion_value", "view_through_conversions"]) }}
+        {{ google_ads_fill_pass_through_columns(pass_through_fields=var('google_ads__ad_group_stats_passthrough_metrics'), except=['conversions', "conversions_value", "view_through_conversions"]) }}
 
     from fields
 )

@@ -55,7 +55,7 @@ The number of clicks.
 The number of conversions you've received, across your conversion actions. Conversions are measured with conversion tracking and may include [modeled](https://support.google.com/google-ads/answer/10081327?sjid=12862894247631803415-NC) conversions in cases where you are not able to observe all conversions that took place. You can use this column to see how often your ads led customers to actions that you’ve defined as valuable for your business.
 {% enddocs %}
 
-{% docs conversion_value %}
+{% docs conversions_value %}
 The sum of monetary values for your `conversions`. You have to enter a value in the Google Ads UI for your conversion actions to make this metric useful.
 {% enddocs %}
 

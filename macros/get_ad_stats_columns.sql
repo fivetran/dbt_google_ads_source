@@ -14,12 +14,12 @@
     {"name": "impressions", "datatype": dbt.type_int()},
     {"name": "keyword_ad_group_criterion", "datatype": dbt.type_string()},
     {"name": "conversions", "datatype": dbt.type_int()},
-    {"name": "conversion_value", "datatype": dbt.type_int()},
+    {"name": "conversions_value", "datatype": dbt.type_int()},
     {"name": "view_through_conversions", "datatype": dbt.type_int()}
 ] %}
 
 {# Doing it this way in case users were bringing in conversion metrics via passthrough columns prior to us adding them by default #}
-{{ google_ads_add_pass_through_columns(base_columns=columns, pass_through_fields=var('google_ads__ad_stats_passthrough_metrics'), except_fields=['conversions', "conversion_value", "view_through_conversions"]) }}
+{{ google_ads_add_pass_through_columns(base_columns=columns, pass_through_fields=var('google_ads__ad_stats_passthrough_metrics'), except_fields=['conversions', "conversions_value", "view_through_conversions"]) }}
 
 {{ return(columns) }}
 
