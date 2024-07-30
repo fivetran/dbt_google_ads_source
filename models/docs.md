@@ -51,6 +51,20 @@ Status of the Campaign.
 The number of clicks.
 {% enddocs %}
 
+{% docs conversions %}
+The number of conversions you've received, across your conversion actions. Conversions are measured with conversion tracking and may include [modeled](https://support.google.com/google-ads/answer/10081327?sjid=12862894247631803415-NC) conversions in cases where you are not able to observe all conversions that took place. You can use this column to see how often your ads led customers to actions that you’ve defined as valuable for your business.
+{% enddocs %}
+
+{% docs conversions_value %}
+The sum of monetary values for your `conversions`. You have to enter a value in the Google Ads UI for your conversion actions to make this metric useful.
+{% enddocs %}
+
+{% docs view_through_conversions %}
+For video campaigns, view-through conversions tell you when an _impression_ of your video ad leads to a conversion on your site. The last impression of a video ad will get credit for the view-through conversion.
+
+Keep in mind: An impression is different than a “view” of a video ad. A “view” is counted when someone watches 30 seconds (or the whole ad if it’s shorter than 30 seconds) or clicks on a part of the ad. A “view” that leads to a conversion is counted in the `conversions` column.
+{% enddocs %}
+
 {% docs cost %}
 The sum of your cost-per-click (CPC) and cost-per-thousand impressions (CPM) costs during this period.
 {% enddocs %}

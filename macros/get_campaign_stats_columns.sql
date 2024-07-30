@@ -10,10 +10,14 @@
     {"name": "date", "datatype": "date"},
     {"name": "device", "datatype": dbt.type_string()},
     {"name": "id", "datatype": dbt.type_int()},
-    {"name": "impressions", "datatype": dbt.type_int()}
+    {"name": "impressions", "datatype": dbt.type_int()},
+    {"name": "conversions", "datatype": dbt.type_int()},
+    {"name": "conversions_value", "datatype": dbt.type_int()},
+    {"name": "view_through_conversions", "datatype": dbt.type_int()}
 ] %}
 
-{{ fivetran_utils.add_pass_through_columns(columns, var('google_ads__campaign_stats_passthrough_metrics')) }}
+{# Doing it this way in case users were bringing in conversion metrics via passthrough columns prior to us adding them by default #}
+{{ google_ads_add_pass_through_columns(base_columns=columns, pass_through_fields=var('google_ads__campaign_stats_passthrough_metrics'), except_fields=['conversions', "conversions_value", "view_through_conversions"]) }}
 
 {{ return(columns) }}
 

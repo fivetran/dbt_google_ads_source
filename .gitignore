@@ -2,6 +2,8 @@ env/
 target/
 dbt_modules/
 logs/
-env/
 dbt_packages/
 package-lock.yml
+integration_tests/package-lock.yml
+.DS_Store
+integration_tests/.DS_Store
