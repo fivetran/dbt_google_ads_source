@@ -1,3 +1,8 @@
+# dbt_google_ads_source version.version
+
+## Documentation
+- Corrected references to connectors and connections in the README. ([#64](https://github.com/fivetran/dbt_google_ads_source/pull/64))
+
 # dbt_google_ads_source v0.11.0
 
 [PR #59](https://github.com/fivetran/dbt_google_ads_source/pull/59) includes the following updates:
