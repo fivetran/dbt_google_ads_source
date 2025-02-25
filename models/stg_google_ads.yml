@@ -386,3 +386,52 @@ models:
         description: "{{ doc('conversions_value') }}"
       - name: view_through_conversions
         description: "{{ doc('view_through_conversions') }}"
+
+
+  - name: stg_google_ads__search_term_stats
+    description: '{{ doc("stg_google_ads__search_term_stats") }}'
+    columns:
+      - name: search_term_id
+        description: '{{ doc("_fivetran_id") }}'
+
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
+
+      - name: account_id
+        description: '{{ doc("external_customer_id") }}'
+
+      - name: date_day
+        description: '{{ doc("date") }}'
+
+      - name: ad_group_id
+        description: '{{ doc("ad_group_id") }}'
+
+      - name: campaign_id
+        description: '{{ doc("campaign_id") }}'
+
+      - name: clicks
+        description: '{{ doc("clicks") }}'
+
+      - name: conversions
+        description: '{{ doc("conversions") }}'
+
+      - name: spend
+        description: '{{ doc("cost") }}'
+
+      - name: impressions
+        description: '{{ doc("impressions") }}'
+
+      - name: resource_name
+        description: '{{ doc("resource_name") }}'
+
+      - name: search_term
+        description: '{{ doc("search_term") }}'
+
+      - name: search_term_match_type
+        description: '{{ doc("search_term_match_type") }}'
+
+      - name: search_term_status
+        description: '{{ doc("status") }}'
+
+      - name: view_through_conversions
+        description: '{{ doc("view_through_conversions") }}'

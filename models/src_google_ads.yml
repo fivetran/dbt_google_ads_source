@@ -270,3 +270,50 @@ sources:
             description: "{{ doc('conversions_value') }}"
           - name: view_through_conversions
             description: "{{ doc('view_through_conversions') }}"
+
+      - name: search_term_stats
+        identifier: '{{ var("google_ads_search_term_stats_identifier", "search_term_stats") }}'
+        description: Each record represents the daily performance of ads when triggered by actual searches within the Search Network by a significant number of people. These search terms trigger the ads due to matching tracked keywords.
+        columns:
+          - name: _fivetran_id
+            description: '{{ doc("_fivetran_id") }}'
+          - name: customer_id
+            description: '{{ doc("customer_id") }}'
+          - name: date
+            description: '{{ doc("date") }}'
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}'
+          - name: absolute_top_impression_percentage
+            description: '{{ doc("absolute_top_impression_percentage") }}'
+          - name: ad_group_id
+            description: '{{ doc("ad_group_id") }}'
+          - name: average_cpc
+            description: '{{ doc("average_cpc") }}'
+          - name: campaign_id
+            description: '{{ doc("campaign_id") }}'
+          - name: clicks
+            description: '{{ doc("clicks") }}'
+          - name: conversions
+            description: '{{ doc("conversions") }}'
+          - name: conversions_from_interactions_rate
+            description: '{{ doc("conversions_from_interactions_rate") }}'
+          - name: conversions_from_interactions_value_per_interaction
+            description: '{{ doc("conversions_from_interactions_value_per_interaction") }}'
+          - name: cost_micros
+            description: '{{ doc("cost") }}'
+          - name: ctr
+            description: '{{ doc("ctr") }}'
+          - name: impressions
+            description: '{{ doc("impressions") }}'
+          - name: resource_name
+            description: '{{ doc("resource_name") }}'
+          - name: search_term
+            description: '{{ doc("search_term") }}'
+          - name: search_term_match_type
+            description: '{{ doc("search_term_match_type") }}'
+          - name: status
+            description: '{{ doc("status") }}'
+          - name: top_impression_percentage
+            description: '{{ doc("top_impression_percentage") }}'
+          - name: view_through_conversions
+            description: '{{ doc("view_through_conversions") }}'

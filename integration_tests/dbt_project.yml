@@ -15,6 +15,7 @@ vars:
   google_ads_ad_group_stats_identifier: "ad_group_stats_data"
   google_ads_campaign_stats_identifier: "campaign_stats_data"
   google_ads_ad_group_criterion_history_identifier: "ad_group_criterion_history_data"
+  google_ads_search_term_stats_identifier: "search_term_stats_data"
 
   google_ads__account_stats_passthrough_metrics:
     - name: conversions
