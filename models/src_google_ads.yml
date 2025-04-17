@@ -270,3 +270,56 @@ sources:
             description: "{{ doc('conversions_value') }}"
           - name: view_through_conversions
             description: "{{ doc('view_through_conversions') }}"
+
+      - name: search_term_keyword_stats
+        identifier: '{{ var("google_ads_search_term_keyword_stats_identifier", "search_term_keyword_stats") }}'
+        description: Each record represents the daily performance of a search term (including associated tracked keywords) in Google Ads.
+        columns:
+          - name: customer_id
+            description: '{{ doc("external_customer_id") }}'
+          - name: date
+            description: '{{ doc("date") }}'
+          - name: _fivetran_id
+            description: '{{ doc("_fivetran_id") }}'
+          - name: resource_name
+            description: '{{ doc("resource_name") }}'
+          - name: search_term
+            description: '{{ doc("search_term") }}'
+          - name: conversions_value
+            description: '{{ doc("conversions_value") }}'
+          - name: conversions
+            description: '{{ doc("conversions") }}'
+          - name: campaign_id
+            description: '{{ doc("campaign_id") }}'
+          - name: search_term_match_type
+            description: '{{ doc("search_term_match_type") }}'
+          - name: impressions
+            description: '{{ doc("impressions") }}'
+          - name: ad_group_id
+            description: '{{ doc("ad_group_id") }}'
+          - name: view_through_conversions
+            description: '{{ doc("view_through_conversions") }}'
+          - name: absolute_top_impression_percentage
+            description: '{{ doc("absolute_top_impression_percentage") }}'
+          - name: clicks
+            description: '{{ doc("clicks") }}'
+          - name: keyword_ad_group_criterion
+            description: '{{ doc("keyword_ad_group_criterion") }}'
+          - name: top_impression_percentage
+            description: '{{ doc("top_impression_percentage") }}'
+          - name: status
+            description: '{{ doc("search_term_status") }}'
+          - name: info_text
+            description: '{{ doc("info_text") }}'
+          - name: conversions_from_interactions_value_per_interaction
+            description: '{{ doc("conversions_from_interactions_value_per_interaction") }}'
+          - name: average_cpc
+            description: '{{ doc("average_cpc") }}'
+          - name: ctr
+            description: '{{ doc("ctr") }}'
+          - name: conversions_from_interactions_rate
+            description: '{{ doc("conversions_from_interactions_rate") }}'
+          - name: cost_micros
+            description: '{{ doc("cost") }}'
+          - name: _fivetran_synced
+            description: '{{ doc("_fivetran_synced") }}'

@@ -386,3 +386,41 @@ models:
         description: "{{ doc('conversions_value') }}"
       - name: view_through_conversions
         description: "{{ doc('view_through_conversions') }}"
+
+  - name: stg_google_ads__search_term_keyword_stats
+    description: Each record represents the daily performance of a search term (including associated tracked keywords) in Google Ads.
+    columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
+      - name: account_id
+        description: '{{ doc("external_customer_id") }}'
+      - name: date_day
+        description: '{{ doc("date") }}'
+      - name: search_term_id
+        description: The unique ID of the search term record.
+      - name: search_term
+        description: '{{ doc("search_term") }}'
+      - name: conversions_value
+        description: '{{ doc("conversions_value") }}'
+      - name: conversions
+        description: '{{ doc("conversions") }}'
+      - name: campaign_id
+        description: '{{ doc("campaign_id") }}'
+      - name: search_term_match_type
+        description: '{{ doc("search_term_match_type") }}'
+      - name: impressions
+        description: '{{ doc("impressions") }}'
+      - name: ad_group_id
+        description: '{{ doc("ad_group_id") }}'
+      - name: view_through_conversions
+        description: '{{ doc("view_through_conversions") }}'
+      - name: clicks
+        description: '{{ doc("clicks") }}'
+      - name: ad_group_criterion_id
+        description: '{{ doc("criteria_id") }}'
+      - name: status
+        description: '{{ doc("search_term_status") }}'
+      - name: keyword_text
+        description: '{{ doc("info_text") }}'
+      - name: spend
+        description: '{{ doc("cost") }}'

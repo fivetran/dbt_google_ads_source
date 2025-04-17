@@ -1,4 +1,7 @@
-# dbt_google_ads_source version.version
+# dbt_google_ads_source 0.12.0
+
+## Feature Updates
+- TODO: Search Term Keyword Stats report included
 
 ## Documentation
 - Corrected references to connectors and connections in the README. ([#64](https://github.com/fivetran/dbt_google_ads_source/pull/64))
