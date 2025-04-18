@@ -5,6 +5,7 @@
 
 ## Documentation
 - Corrected references to connectors and connections in the README. ([#64](https://github.com/fivetran/dbt_google_ads_source/pull/64))
+- Updated LICENSE.
 
 # dbt_google_ads_source v0.11.0
 

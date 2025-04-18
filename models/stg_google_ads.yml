@@ -389,6 +389,12 @@ models:
 
   - name: stg_google_ads__search_term_keyword_stats
     description: Each record represents the daily performance of a search term (including associated tracked keywords) in Google Ads.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - source_relation
+            - search_term_id
+            - date_day
     columns:
       - name: source_relation
         description: "{{ doc('source_relation') }}"
@@ -396,8 +402,12 @@ models:
         description: '{{ doc("external_customer_id") }}'
       - name: date_day
         description: '{{ doc("date") }}'
+        tests:
+          - not_null
       - name: search_term_id
         description: The unique ID of the search term record.
+        tests:
+          - not_null
       - name: search_term
         description: '{{ doc("search_term") }}'
       - name: conversions_value

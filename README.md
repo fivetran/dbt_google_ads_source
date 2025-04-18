@@ -1,4 +1,6 @@
-<p align="center">
+# Google Ads Source dbt Package ([Docs](https://fivetran.github.io/dbt_google_ads_source/))
+
+<p align="left">
     <a alt="License"
         href="https://github.com/fivetran/dbt_google_ads_source/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
@@ -10,7 +12,6 @@
         <img src="https://img.shields.io/badge/Contributions-welcome-blueviolet" /></a>
 </p>
 
-# Google Ads Source dbt Package ([Docs](https://fivetran.github.io/dbt_google_ads_source/))
 ## What does this dbt package do?
 - Materializes [Google Ads staging tables](https://fivetran.github.io/dbt_google_ads_source/#!/overview/google_ads_source/models/?g_v=1&g_e=seeds) which leverage data in the format described by [this ERD](https://fivetran.com/docs/applications/google-ads#schemainformation). These staging tables clean, test, and prepare your Google Ads data from [Fivetran's connector](https://fivetran.com/docs/applications/google-ads) for analysis by doing the following:
   - Name columns for consistency across all packages and for easier analysis
@@ -85,8 +86,9 @@ vars:
       - name: "other_id"
         alias: "another_id"
     google_ads__search_term_keyword_stats_passthrough_metrics:
-      - name: "other_id"
-        alias: "another_id"
+      - name: "some_metric"
+        alias: "metric_pct"
+        transform_sql: "metric_pct / 100.0"
 ```
 
 #### Change the build schema
