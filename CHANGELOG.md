@@ -3,7 +3,8 @@
 ## Feature Updates
 - Incorporated the new `search_term_keyword_stats` table in order to create a search term report model downstream. This report was added to the Google Ads connector in [April 2025](https://fivetran.com/docs/connectors/applications/google-ads/changelog#april2025) and tracks metrics for search terms and includes the keywords that they match with. ([#65](https://github.com/fivetran/dbt_google_ads_source/pull/65))
   - This has produced 2 new staging models: `stg_google_ads__search_term_keyword_stats` and its `stg_google_ads__search_term_keyword_stats_tmp` counterpart.
-  - Introduced the `google_ads__using_search_term_keyword_stats` variable, which can be used to disable transformations related to the new `search_term_keyword_stats` table. See README for more details.
+- Introduced the `google_ads__using_search_term_keyword_stats` variable, which can be used to disable transformations related to the new `search_term_keyword_stats` table. See [README](https://github.com/fivetran/dbt_google_ads_source?tab=readme-ov-file#disable-search-term-keyword-stats) for more details. ([#65](https://github.com/fivetran/dbt_google_ads_source/pull/65))
+- Introduced the `google_ads__search_term_keyword_stats_passthrough_metrics` variable, which can be used to pass through additional metrics fields from the `search_term_keyword_stats` report. See [README](https://github.com/fivetran/dbt_google_ads_source?tab=readme-ov-file#passing-through-additional-metrics) for more details. ([#65](https://github.com/fivetran/dbt_google_ads_source/pull/65))
 
 ## Documentation
 - Corrected references to connectors and connections in the README. ([#64](https://github.com/fivetran/dbt_google_ads_source/pull/64))

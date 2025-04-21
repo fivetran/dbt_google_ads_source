@@ -20,6 +20,8 @@
     {"name": "view_through_conversions", "datatype": dbt.type_int()}
 ] %}
 
+{{ google_ads_add_pass_through_columns(base_columns=columns, pass_through_fields=var('google_ads__search_term_keyword_stats_passthrough_metrics')) }}
+
 {{ return(columns) }}
 
 {% endmacro %}
