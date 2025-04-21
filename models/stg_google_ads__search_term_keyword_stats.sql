@@ -31,12 +31,8 @@ final as (
         _fivetran_id as search_term_id,
         cast(ad_group_id as {{ dbt.type_string() }}) as ad_group_id,
         campaign_id,
-        {# actually not gonna use this downstream. wondering if it's helpful/worth any potential risk to keep it in the staging model #}
-        {{ dbt.split_part(string_text="keyword_ad_group_criterion", delimiter_text="'~'", part_number=2) }} as ad_group_criterion_id,
+        keyword_ad_group_criterion,
         search_term,
-        {# Older keywords may have (+) signs in front of them as a legacy of BMM keywords, which were deprecated in 2021. Should we strip them out for standardization or leave them in for historical accuracy? 
-        Also, some keywords may have double quotes around them (''word'' instead of "word"), which seem to indicate a phrase match for the keyword (this doesn't map onto the search_term_match_type however). Should we strip these out or leave em? 
-        #}
         info_text as keyword_text,
         search_term_match_type,
         status, 

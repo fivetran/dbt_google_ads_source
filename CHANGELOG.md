@@ -10,6 +10,7 @@
 - Corrected references to connectors and connections in the README. ([#64](https://github.com/fivetran/dbt_google_ads_source/pull/64))
 - Updated the LICENSE. ([#65](https://github.com/fivetran/dbt_google_ads_source/pull/65))
 - Adjusted README header format. ([#65](https://github.com/fivetran/dbt_google_ads_source/pull/65))
+- Added discussion of `keyword_text` qualifiers to the [DECISIONLOG](https://github.com/fivetran/dbt_google_ads_source/blob/main/DECISIONLOG.md). ([#65](https://github.com/fivetran/dbt_google_ads_source/pull/65))
 
 # dbt_google_ads_source v0.11.0
 
