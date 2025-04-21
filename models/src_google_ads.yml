@@ -274,6 +274,8 @@ sources:
       - name: search_term_keyword_stats
         identifier: '{{ var("google_ads_search_term_keyword_stats_identifier", "search_term_keyword_stats") }}'
         description: Each record represents the daily performance of a search term (including associated tracked keywords) in Google Ads.
+        config:
+          enabled: "{{ var('ad_reporting__google_ads_enabled', true) and var('google_ads__using_search_term_keyword_stats', True) }}"
         columns:
           - name: customer_id
             description: '{{ doc("external_customer_id") }}'

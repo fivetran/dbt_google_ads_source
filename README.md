@@ -65,6 +65,15 @@ vars:
 
 To connect your multiple schema/database sources to the package models, follow the steps outlined in the [Union Data Defined Sources Configuration](https://github.com/fivetran/dbt_fivetran_utils/tree/releases/v0.4.latest#union_data-source) section of the Fivetran Utils documentation for the union_data macro. This will ensure a proper configuration and correct visualization of connections in the DAG.
 
+#### Disable Search Term Keyword Stats
+This package uses the `search_term_keyword_stats` pre-built report introduced in [April 2025](https://fivetran.com/docs/connectors/applications/google-ads/changelog#april2025), but takes into consideration that not every user may sync or want to use this table. By default, if you do not have the `search_term_keyword_stats` report and are not running the Google Ads transform package via Fivetran Quickstart, we will create empty staging `search_term_keyword_stats` models so as to not cause downstream transformation failures.
+
+To **totally** disable transformations of `search_term_keyword_stats`, add the following variable configuration to your root `dbt_project.yml` file:
+```yml
+vars:
+    google_ads__using_search_term_keyword_stats: False # True by default
+```
+
 #### Passing Through Additional Metrics
 By default, this package will select `clicks`, `impressions`, `cost`, `conversions`, `conversions_value`, and `view_through_conversions` from the source reporting tables to store into the staging models. If you would like to pass through additional metrics to the staging models, add the below configurations to your `dbt_project.yml` file. These variables allow for the pass-through fields to be aliased (`alias`) if desired, but not required. Use the below format for declaring the respective pass-through variables:
 
