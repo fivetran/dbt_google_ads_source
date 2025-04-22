@@ -5,8 +5,8 @@
 **2 total changes • 0 possible breaking changes**
 | **Model/Column** | **Change type** | **Old name** | **New name** | **Notes** |
 | ---------------- | --------------- | ------------ | ------------ | --------- |
-| stg_google_ads__search_term_keyword_stats | New Model |   |   |  Uses [new](https://fivetran.com/docs/connectors/applications/google-ads/changelog#april2025) `search_term_keyword_stats` source table  |
-| stg_google_ads__search_term_keyword_stats_tmp | New Model |   |   | Uses [new](https://fivetran.com/docs/connectors/applications/google-ads/changelog#april2025) `search_term_keyword_stats` source table   |
+| stg_google_ads__search_term_keyword_stats | New Model |   |   |  Uses new `search_term_keyword_stats` source table  |
+| stg_google_ads__search_term_keyword_stats_tmp | New Model |   |   | Uses new `search_term_keyword_stats` source table   |
 
 ## Feature Updates
 - Introduced the `google_ads__using_search_term_keyword_stats` variable, which can be used to disable transformations related to the new `search_term_keyword_stats` table included in the above models. See [README](https://github.com/fivetran/dbt_google_ads_source?tab=readme-ov-file#disable-search-term-keyword-stats) for more details. ([#65](https://github.com/fivetran/dbt_google_ads_source/pull/65))
