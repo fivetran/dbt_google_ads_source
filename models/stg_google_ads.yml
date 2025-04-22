@@ -426,8 +426,8 @@ models:
         description: '{{ doc("view_through_conversions") }}'
       - name: clicks
         description: '{{ doc("clicks") }}'
-      - name: ad_group_criterion_id
-        description: '{{ doc("criteria_id") }}'
+      - name: keyword_ad_group_criterion
+        description: '{{ doc("keyword_ad_group_criterion") }}'
       - name: status
         description: '{{ doc("search_term_status") }}'
       - name: keyword_text
