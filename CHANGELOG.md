@@ -1,4 +1,4 @@
-# dbt_google_ads_source 0.12.0
+# dbt_google_ads_source v0.12.0
 
 ## Schema Updates
 
