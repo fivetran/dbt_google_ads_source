@@ -1,7 +1,22 @@
-# dbt_google_ads_source version.version
+# dbt_google_ads_source 0.12.0
+
+## Schema Updates
+
+**2 total changes • 0 possible breaking changes**
+| **Model/Column** | **Change type** | **Old name** | **New name** | **Notes** |
+| ---------------- | --------------- | ------------ | ------------ | --------- |
+| stg_google_ads__search_term_keyword_stats | New Model |   |   |  Uses new `search_term_keyword_stats` source table  |
+| stg_google_ads__search_term_keyword_stats_tmp | New Model |   |   | Uses new `search_term_keyword_stats` source table   |
+
+## Feature Updates
+- Introduced the `google_ads__using_search_term_keyword_stats` variable, which can be used to disable transformations related to the new `search_term_keyword_stats` table included in the above models. See [README](https://github.com/fivetran/dbt_google_ads_source?tab=readme-ov-file#disable-search-term-keyword-stats) for more details. ([#65](https://github.com/fivetran/dbt_google_ads_source/pull/65))
+- Introduced the `google_ads__search_term_keyword_stats_passthrough_metrics` variable, which can be used to pass through additional metrics fields from the `search_term_keyword_stats` report to the above models. See [README](https://github.com/fivetran/dbt_google_ads_source?tab=readme-ov-file#passing-through-additional-metrics) for more details. ([#65](https://github.com/fivetran/dbt_google_ads_source/pull/65))
 
 ## Documentation
 - Corrected references to connectors and connections in the README. ([#64](https://github.com/fivetran/dbt_google_ads_source/pull/64))
+- Updated the LICENSE. ([#65](https://github.com/fivetran/dbt_google_ads_source/pull/65))
+- Adjusted README header format. ([#65](https://github.com/fivetran/dbt_google_ads_source/pull/65))
+- Added discussion of `keyword_text` qualifiers to the [DECISIONLOG](https://github.com/fivetran/dbt_google_ads_source/blob/main/DECISIONLOG.md). ([#65](https://github.com/fivetran/dbt_google_ads_source/pull/65))
 
 # dbt_google_ads_source v0.11.0
 
