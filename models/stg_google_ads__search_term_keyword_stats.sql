@@ -32,6 +32,7 @@ final as (
         cast(ad_group_id as {{ dbt.type_string() }}) as ad_group_id,
         campaign_id,
         keyword_ad_group_criterion,
+        {# keyword_ad_group_criterion is formatted as: customers/{customer_id}/adGroupCriteria/{ad_group_id}~{criterion_id} #}
         {{ dbt.split_part(string_text="keyword_ad_group_criterion", delimiter_text="'~'", part_number=2) }} as criterion_id,
         search_term,
         info_text as keyword_text,
