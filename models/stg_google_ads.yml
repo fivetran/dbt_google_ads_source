@@ -434,3 +434,5 @@ models:
         description: '{{ doc("info_text") }}'
       - name: spend
         description: '{{ doc("cost") }}'
+      - name: criterion_id
+        description: Reference to the ad group criterion used for the associated keyword. One `keyword_text` may have multiple `criterion_id` values.
