@@ -1,3 +1,13 @@
+# dbt_google_ads_source v0.13.0
+[PR #67](https://github.com/fivetran/dbt_google_ads_source/pull/67) introduces the following updates: 
+
+## Schema Updates
+
+**1 total changes • 0 possible breaking changes**
+| **Model/Column** | **Change type** | **Old name** | **New name** | **Notes** |
+| ---------------- | --------------- | ------------ | ------------ | --------- |
+| [stg_google_ads__search_term_keyword_stats](https://fivetran.github.io/dbt_google_ads_source/#!/model/model.google_ads_source.stg_google_ads__search_term_keyword_stats) | New Column |   |  `criterion_id` |  Parsed out of `keyword_ad_group_criterion` field |
+
 # dbt_google_ads_source v0.12.0
 
 ## Schema Updates
