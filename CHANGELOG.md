@@ -1,4 +1,5 @@
 # dbt_google_ads_source v0.13.0
+[PR #67](https://github.com/fivetran/dbt_google_ads_source/pull/67) introduces the following updates: 
 
 ## Schema Updates
 
