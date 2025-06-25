@@ -16,6 +16,7 @@
 - Materializes [Google Ads staging tables](https://fivetran.github.io/dbt_google_ads_source/#!/overview/google_ads_source/models/?g_v=1&g_e=seeds) which leverage data in the format described by [this ERD](https://fivetran.com/docs/applications/google-ads#schemainformation). These staging tables clean, test, and prepare your Google Ads data from [Fivetran's connector](https://fivetran.com/docs/applications/google-ads) for analysis by doing the following:
   - Name columns for consistency across all packages and for easier analysis
   - Adds freshness tests to source data
+    > dbt Core >= 1.9.6 is required to run freshness tests out of the box. See other options [here](https://github.com/fivetran/dbt_google_ads_source/blob/main/CHANGELOG.md#breaking-change-for-dbt-core--196).
   - Adds column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
 - Generates a comprehensive data dictionary of your google_ads data through the [dbt docs site](https://fivetran.github.io/dbt_google_ads_source/).
 - These tables are designed to work simultaneously with our [Google Ads transformation package](https://github.com/fivetran/dbt_google_ads).
@@ -41,7 +42,7 @@ If you  are **not** using the [Google Ads transformation package](https://github
 ```yml
 packages:
   - package: fivetran/google_ads_source
-    version: [">=0.13.0", "<0.14.0"] # we recommend using ranges to capture non-breaking changes automatically
+    version: [">=0.14.0", "<0.15.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
 ### Step 3: Define database and schema variables
 By default, this package runs using your destination and the `google_ads` schema. If this is not where your Google Ads data is (for example, if your google_ads schema is named `google_ads_fivetran`), add the following configuration to your root `dbt_project.yml` file:
